@@ -30,5 +30,16 @@ namespace CowboyCafe.Data
                 return 894;
             }
         }
+
+        /// <summary>
+        /// Get the special instructions (there are none)
+        /// </summary>
+        public List<String> SpecialInstructions
+        {
+            get
+            {
+                return new List<String>();
+            }
+        }
     }
 }

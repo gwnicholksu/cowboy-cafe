@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+* Author: Grant Nichol
+* Class: AngryChicken.cs
+* Purpose: A class representing the Angry Chicken entree
+*/
+
+using System;
 using System.Collections.Generic;
 
 namespace CowboyCafe.Data

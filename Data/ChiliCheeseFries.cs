@@ -1,3 +1,9 @@
+/*
+* Author: Grant Nichol
+* Class: ChiliCheeseFries.cs
+* Purpose: A class representing the Chili Cheese Fries side
+*/
+
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -5,7 +11,7 @@ using System.Text;
 namespace CowboyCafe.Data
 {
     /// <summary>
-    /// A base class representing a side
+    /// A class representing the Chili Cheese Fries side
     /// </summary>
     public class ChiliCheeseFries : Side
     {

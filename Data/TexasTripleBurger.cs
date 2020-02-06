@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+* Author: Grant Nichol
+* Class: TexasTripleBurger.cs
+* Purpose: A class for the Texas Triple Burger entree
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 

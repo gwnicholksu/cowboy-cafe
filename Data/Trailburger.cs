@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+* Author: Grant Nichol
+* Class: Trailburger.cs
+* Purpose: A class for the Trailburger entree
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 

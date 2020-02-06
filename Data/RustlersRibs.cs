@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+* Author: Grant Nichol
+* Class: RustlersRibs.cs
+* Purpose: A class for the Texas Rustler's Ribs entree
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 

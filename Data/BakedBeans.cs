@@ -1,6 +1,6 @@
 ﻿/*
 * Author: Grant Nichol
-* Class: CornDodgers.cs
+* Class: BakedBeans.cs
 * Purpose: A class representing the Baked Beans side
 */
 

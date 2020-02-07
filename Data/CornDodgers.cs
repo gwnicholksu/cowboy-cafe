@@ -37,7 +37,7 @@ namespace CowboyCafe.Data
         }
 
         /// <summary>
-        /// Gets the calories of the entree
+        /// Gets the calories of the side
         /// </summary>
         public override uint Calories
         {

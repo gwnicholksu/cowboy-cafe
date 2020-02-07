@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+* Author: Grant Nichol
+* Class: Entree.cs
+* Purpose: An abstract class detailing what should be in an entree class.
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 

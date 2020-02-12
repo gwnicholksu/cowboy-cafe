@@ -10,6 +10,9 @@ using System.Text;
 
 namespace CowboyCafe.Data
 {
+    /// <summary>
+    /// An abstract class detailing what should be in an drink class.
+    /// </summary>
     public abstract class Drink
     {
         /// <summary>

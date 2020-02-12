@@ -8,7 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace CowboyCafe.Data.Drinks
+namespace CowboyCafe.Data
 {
     /// <summary>
     /// An enum of what soda flavors are available

@@ -8,7 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace CowboyCafe.Data.Drinks
+namespace CowboyCafe.Data
 {
     /// <summary>
     /// A class for the Texas Tea drink

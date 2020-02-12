@@ -30,7 +30,7 @@ namespace CowboyCafe.Data
                     _ => throw new NotImplementedException(),
                 };
 
-                return (Sweet) ? cal / 2 : cal;
+                return (Sweet) ? cal : cal / 2;
             }
         }
 

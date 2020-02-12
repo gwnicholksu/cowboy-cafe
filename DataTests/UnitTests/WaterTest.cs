@@ -4,7 +4,7 @@ using System.Text;
 using Xunit;
 using CowboyCafe.Data;
 
-namepace CowboyCafe.DataTests
+namespace CowboyCafe.DataTests
 {
     public class WaterTest
     {

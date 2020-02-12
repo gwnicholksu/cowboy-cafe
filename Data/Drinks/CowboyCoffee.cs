@@ -52,6 +52,11 @@ namespace CowboyCafe.Data
         }
 
         /// <summary>
+        /// Whether the coffee should be decalf
+        /// </summary>
+        public bool Decaf { get; set; } = false;
+
+        /// <summary>
         /// Whether there should be room for cream
         /// </summary>
         public bool RoomForCream { get; set; } = false;

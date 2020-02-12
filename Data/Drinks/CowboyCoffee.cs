@@ -51,8 +51,14 @@ namespace CowboyCafe.Data.Drinks
             }
         }
 
+        /// <summary>
+        /// Whether there should be room for cream
+        /// </summary>
         public bool RoomForCream { get; set; } = false;
 
+        /// <summary>
+        /// Constructor to change ice default
+        /// </summary>
         public CowboyCoffee()
         {
             this.Ice = false; // Make Ice false this time
@@ -72,7 +78,5 @@ namespace CowboyCafe.Data.Drinks
                 return returnList;
             }
         }
-
-
     }
 }

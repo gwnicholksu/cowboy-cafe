@@ -51,6 +51,9 @@ namespace CowboyCafe.Data.Drinks
             }
         }
 
+        /// <summary>
+        /// What flavor the soda should be
+        /// </summary>
         public SodaFlavor Flavor { get; set; } = SodaFlavor.CreamSoda;
 
         /// <summary>

@@ -52,7 +52,14 @@ namespace CowboyCafe.Data.Drinks
             }
         }
 
+        /// <summary>
+        /// Whether the tea should be sweetened
+        /// </summary>
         public bool Sweet { get; set; } = true;
+
+        /// <summary>
+        /// Whether there should be lemon
+        /// </summary>
         public bool Lemon { get; set; } = false;
 
         /// <summary>

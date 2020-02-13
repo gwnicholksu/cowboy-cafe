@@ -10,6 +10,12 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{938FDA09-9346-4837-A3AE-EA1B3485B73F}"
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
+		Documentation\Data.pdf = Documentation\Data.pdf
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentation", "{7EC47A3F-1E4F-444B-BE97-E37B64DB248F}"
+	ProjectSection(SolutionItems) = preProject
+		Documentation\Data.pdf = Documentation\Data.pdf
 	EndProjectSection
 EndProject
 Global

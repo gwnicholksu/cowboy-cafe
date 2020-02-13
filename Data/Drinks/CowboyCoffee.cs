@@ -62,12 +62,9 @@ namespace CowboyCafe.Data
         public bool RoomForCream { get; set; } = false;
 
         /// <summary>
-        /// Constructor to change ice default
+        /// Whether there should be ice in the drink
         /// </summary>
-        public CowboyCoffee()
-        {
-            this.Ice = false; // Make Ice false this time
-        }
+        public override bool Ice { get; set; } = false;
 
         /// <summary>
         /// The special instructions for this drink

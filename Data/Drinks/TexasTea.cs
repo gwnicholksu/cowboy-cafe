@@ -22,15 +22,23 @@ namespace CowboyCafe.Data
         {
             get
             {
-                uint cal = Size switch
+                uint cals;
+                switch (Size)
                 {
-                    Size.Small => 10,
-                    Size.Medium => 22,
-                    Size.Large => 36,
-                    _ => throw new NotImplementedException(),
-                };
+                    case Size.Small:
+                        cals = 10;
+                        break;
+                    case Size.Medium:
+                        cals = 22;
+                        break;
+                    case Size.Large:
+                        cals = 36;
+                        break;
+                    default:
+                        throw new NotImplementedException();
+                }
 
-                return (Sweet) ? cal : cal / 2;
+                return (Sweet) ? cals : cals / 2;
             }
         }
 

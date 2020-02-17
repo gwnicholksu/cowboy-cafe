@@ -18,6 +18,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentat
 		Documentation\Data.pdf = Documentation\Data.pdf
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PointOfSale", "PointOfSale\PointOfSale.csproj", "{BBBDE29F-7A75-48A2-94B5-148808FD63CB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -32,6 +34,10 @@ Global
 		{157E0096-37C4-4A66-80B0-337D690719F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{157E0096-37C4-4A66-80B0-337D690719F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{157E0096-37C4-4A66-80B0-337D690719F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BBBDE29F-7A75-48A2-94B5-148808FD63CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BBBDE29F-7A75-48A2-94B5-148808FD63CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BBBDE29F-7A75-48A2-94B5-148808FD63CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BBBDE29F-7A75-48A2-94B5-148808FD63CB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

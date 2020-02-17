@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using Xunit;
 using CowboyCafe.Data;
@@ -60,4 +60,5 @@ namespace CowboyCafe.DataTests
             Assert.Contains("hold bread", chicken.SpecialInstructions);
         }
     }
+>>>>>>> 39f23923651db4dafe6dbb705759ce97d16ca5cc
 }

@@ -47,5 +47,14 @@ namespace CowboyCafe.Data
                 return new List<String>();
             }
         }
+
+        /// <summary>
+        /// Get a nice string representation of this entree
+        /// </summary>
+        /// <returns>String of entree</returns>
+        public override string ToString()
+        {
+            return "Rustler's Ribs";
+        }
     }
 }

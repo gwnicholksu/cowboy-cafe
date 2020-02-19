@@ -69,5 +69,40 @@ namespace CowboyCafe.Data
                 return returnList;
             }
         }
+
+        /// <summary>
+        /// Get a lice string representation of this drink
+        /// </summary>
+        /// <returns>String of drink</returns>
+        public override string ToString()
+        {
+            StringBuilder ret = new StringBuilder();
+            ret.Append(Size);
+
+            switch (Flavor)
+            {
+                case SodaFlavor.BirchBeer:
+                    ret.Append(" Birch Beer");
+                    break;
+                case SodaFlavor.CreamSoda:
+                    ret.Append(" Cream Soda");
+                    break;
+                case SodaFlavor.OrangeSoda:
+                    ret.Append(" Orange Soda");
+                    break;
+                case SodaFlavor.RootBeer:
+                    ret.Append(" Root Beer");
+                    break;
+                case SodaFlavor.Sarsparilla:
+                    ret.Append(" Sarsparilla");
+                    break;
+                default:
+                    break;
+            }
+
+            ret.Append(" Jerked Soda");
+
+            return ret.ToString();
+        }
     }
 }

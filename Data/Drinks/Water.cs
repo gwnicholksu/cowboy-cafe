@@ -56,5 +56,19 @@ namespace CowboyCafe.Data
                 return returnList;
             }
         }
+
+        /// <summary>
+        /// Get a lice string representation of this drink
+        /// </summary>
+        /// <returns>String of drink</returns>
+        public override string ToString()
+        {
+            StringBuilder ret = new StringBuilder();
+            ret.Append(Size);
+
+            ret.Append(" Water");
+
+            return ret.ToString();
+        }
     }
 }

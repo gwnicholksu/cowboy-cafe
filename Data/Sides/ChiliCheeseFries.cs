@@ -56,5 +56,17 @@ namespace CowboyCafe.Data
                 }
             }
         }
+
+        /// <summary>
+        /// Get a nice string representation of this side
+        /// </summary>
+        /// <returns>String of side</returns>
+        public override string ToString()
+        {
+            StringBuilder ret = new StringBuilder();
+            ret.Append(Size);
+            ret.Append(" Chili Cheese Fries");
+            return ret.ToString();
+        }
     }
 }

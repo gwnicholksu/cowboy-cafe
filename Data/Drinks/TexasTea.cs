@@ -94,7 +94,12 @@ namespace CowboyCafe.Data
             StringBuilder ret = new StringBuilder();
             ret.Append(Size);
 
-            ret.Append(" Texas Tea");
+            ret.Append(" Texas");
+
+            if (Sweet) ret.Append(" Sweet");
+            else ret.Append(" Plain");
+
+            ret.Append(" Tea");
 
             return ret.ToString();
         }

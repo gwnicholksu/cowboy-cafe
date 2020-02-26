@@ -13,7 +13,7 @@ namespace CowboyCafe.Data
     /// <summary>
     /// An abstract class detailing what should be in an drink class.
     /// </summary>
-    public abstract class Drink
+    public abstract class Drink : IOrderItem
     {
         /// <summary>
         /// The number of calories in the drink

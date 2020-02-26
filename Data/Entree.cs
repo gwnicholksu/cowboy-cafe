@@ -14,7 +14,7 @@ namespace CowboyCafe.Data
     /// <summary>
     /// The base class for an entree
     /// </summary>
-    public abstract class Entree
+    public abstract class Entree : IOrderItem
     {
         /// <summary>
         /// The number of calories in the entree

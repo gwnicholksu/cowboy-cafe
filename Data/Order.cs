@@ -8,7 +8,7 @@ namespace CowboyCafe.Data
     /// <summary>
     /// Hold an order
     /// </summary>
-    public class Order
+    public class Order : INotifyPropertyChanged
     {
         /// <summary>
         /// The last used order number

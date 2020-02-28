@@ -61,12 +61,7 @@
             <Button Name="AddWater" Click="AddWater_Click">Water</Button>
         </StackPanel>
 
-        <StackPanel Grid.Column="3">
-            <TextBlock Style="{StaticResource TextHeader}">Order</TextBlock>
-            
-            <ListView Name="OrderList" />
-
-        </StackPanel>
+        <local:OrderSummaryControl Grid.Column="3" VerticalContentAlignment="Stretch"></local:OrderSummaryControl>
         
 
 

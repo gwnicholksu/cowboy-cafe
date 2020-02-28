@@ -19,8 +19,11 @@ namespace CowboyCafe.PointOfSale
     /// </summary>
     public partial class OrderControl : UserControl
     {
+        private Order thisOrder = new Order();
+
         public OrderControl()
         {
+            DataContext = thisOrder;
             InitializeComponent();
         }
 
@@ -33,7 +36,7 @@ namespace CowboyCafe.PointOfSale
         /// <param name="e"></param>
         private void AddCowpokeChiliButton_Click(object sender, RoutedEventArgs e)
         {
-            OrderList.Items.Add(new CowpokeChili());
+            thisOrder.Add(new CowpokeChili());
         }
 
         /// <summary>
@@ -43,7 +46,7 @@ namespace CowboyCafe.PointOfSale
         /// <param name="e"></param>
         private void AddRustlersRibs_Click(object sender, RoutedEventArgs e)
         {
-            OrderList.Items.Add(new RustlersRibs());
+            thisOrder.Add(new RustlersRibs());
         }
 
         /// <summary>
@@ -53,7 +56,7 @@ namespace CowboyCafe.PointOfSale
         /// <param name="e"></param>
         private void AddPecosPulledPork_Click(object sender, RoutedEventArgs e)
         {
-            OrderList.Items.Add(new PecosPulledPork());
+            thisOrder.Add(new PecosPulledPork());
         }
 
         /// <summary>
@@ -63,7 +66,7 @@ namespace CowboyCafe.PointOfSale
         /// <param name="e"></param>
         private void AddTrailBurger_Click(object sender, RoutedEventArgs e)
         {
-            OrderList.Items.Add(new TrailBurger());
+            thisOrder.Add(new TrailBurger());
         }
 
         /// <summary>
@@ -73,7 +76,7 @@ namespace CowboyCafe.PointOfSale
         /// <param name="e"></param>
         private void AddDakotaDoubleBurger_Click(object sender, RoutedEventArgs e)
         {
-            OrderList.Items.Add(new DakotaDoubleBurger());
+            thisOrder.Add(new DakotaDoubleBurger());
         }
 
         /// <summary>
@@ -83,7 +86,7 @@ namespace CowboyCafe.PointOfSale
         /// <param name="e"></param>
         private void AddTexasTripleBurger_Click(object sender, RoutedEventArgs e)
         {
-            OrderList.Items.Add(new TexasTripleBurger());
+            thisOrder.Add(new TexasTripleBurger() { Pickle = false, Cheese = false });
         }
 
         /// <summary>
@@ -93,7 +96,7 @@ namespace CowboyCafe.PointOfSale
         /// <param name="e"></param>
         private void AddAngryChicken_Click(object sender, RoutedEventArgs e)
         {
-            OrderList.Items.Add(new AngryChicken());
+            thisOrder.Add(new AngryChicken() { Pickle = false });
         }
         #endregion
 
@@ -106,7 +109,7 @@ namespace CowboyCafe.PointOfSale
         /// <param name="e"></param>
         private void AddChiliCheeseFries_Click(object sender, RoutedEventArgs e)
         {
-            OrderList.Items.Add(new ChiliCheeseFries());
+            thisOrder.Add(new ChiliCheeseFries());
         }
 
         /// <summary>
@@ -116,7 +119,7 @@ namespace CowboyCafe.PointOfSale
         /// <param name="e"></param>
         private void AddCornDodgers_Click(object sender, RoutedEventArgs e)
         {
-            OrderList.Items.Add(new CornDodgers());
+            thisOrder.Add(new CornDodgers());
         }
 
         /// <summary>
@@ -126,7 +129,7 @@ namespace CowboyCafe.PointOfSale
         /// <param name="e"></param>
         private void AddPanDeCampo_Click(object sender, RoutedEventArgs e)
         {
-            OrderList.Items.Add(new PanDeCampo());
+            thisOrder.Add(new PanDeCampo());
         }
 
         /// <summary>
@@ -136,7 +139,7 @@ namespace CowboyCafe.PointOfSale
         /// <param name="e"></param>
         private void AddBakedBeans_Click(object sender, RoutedEventArgs e)
         {
-            OrderList.Items.Add(new BakedBeans());
+            thisOrder.Add(new BakedBeans());
         }
 
         #endregion
@@ -150,7 +153,7 @@ namespace CowboyCafe.PointOfSale
         /// <param name="e"></param>
         private void AddJerkedSoda_Click(object sender, RoutedEventArgs e)
         {
-            OrderList.Items.Add(new JerkedSoda());
+            thisOrder.Add(new JerkedSoda());
         }
 
 
@@ -161,7 +164,7 @@ namespace CowboyCafe.PointOfSale
         /// <param name="e"></param>
         private void AddTexasTea_Click(object sender, RoutedEventArgs e)
         {
-            OrderList.Items.Add(new TexasTea());
+            thisOrder.Add(new TexasTea());
         }
 
         /// <summary>
@@ -171,7 +174,7 @@ namespace CowboyCafe.PointOfSale
         /// <param name="e"></param>
         private void AddCowboyCoffe_Click(object sender, RoutedEventArgs e)
         {
-            OrderList.Items.Add(new CowboyCoffee());
+            thisOrder.Add(new CowboyCoffee());
         }
 
         /// <summary>
@@ -181,7 +184,7 @@ namespace CowboyCafe.PointOfSale
         /// <param name="e"></param>
         private void AddWater_Click(object sender, RoutedEventArgs e)
         {
-            OrderList.Items.Add(new Water());
+            thisOrder.Add(new Water());
         }
 
         #endregion

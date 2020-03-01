@@ -19,10 +19,33 @@ namespace CowboyCafe.PointOfSale
     /// </summary>
     public partial class OrderControl : UserControl
     {
+        /// <summary>
+        /// Initialize the OrderControl view
+        /// </summary>
         public OrderControl()
         {
             DataContext = new Order();
             InitializeComponent();
+        }
+
+        /// <summary>
+        /// Method to cancel an order
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void CancelOrder(object sender, RoutedEventArgs e)
+        {
+            DataContext = new Order();
+        }
+
+        /// <summary>
+        /// Method to complete an order
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void CompleteOrder(object sender, RoutedEventArgs e)
+        {
+            DataContext = new Order();
         }
     }
 }

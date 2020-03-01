@@ -20,6 +20,9 @@ namespace CowboyCafe.PointOfSale
     /// </summary>
     public partial class OrderSummaryControl : UserControl
     {
+        /// <summary>
+        /// Initialize the Order Summary Control
+        /// </summary>
         public OrderSummaryControl()
         {
             InitializeComponent();

@@ -20,7 +20,11 @@ namespace CowboyCafe.Data
         /// </summary>
         public uint OrderNumber { get; } = lastOrderNumber++;
 
+        /// <summary>
+        /// The items that have been ordered
+        /// </summary>
         private List<IOrderItem> items = new List<IOrderItem>();
+
         /// <summary>
         /// The items in this Order
         /// </summary>
@@ -31,8 +35,11 @@ namespace CowboyCafe.Data
             }
         }
 
-
+        /// <summary>
+        /// The private backing variable for the Subtotal property
+        /// </summary>
         private double subtotal = 0;
+
         /// <summary>
         /// The subtotal price for this order
         /// </summary>

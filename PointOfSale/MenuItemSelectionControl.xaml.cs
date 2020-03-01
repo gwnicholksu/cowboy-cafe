@@ -19,6 +19,9 @@ namespace CowboyCafe.PointOfSale
     /// </summary>
     public partial class MenuItemSelectionControl : UserControl
     {
+        /// <summary>
+        /// Initialize the Menu Selection Control
+        /// </summary>
         public MenuItemSelectionControl()
         {
             InitializeComponent();
@@ -83,7 +86,7 @@ namespace CowboyCafe.PointOfSale
         /// <param name="e"></param>
         private void AddTexasTripleBurger_Click(object sender, RoutedEventArgs e)
         {
-            ((Order)DataContext).Add(new TexasTripleBurger() { Pickle = false, Cheese = false });
+            ((Order)DataContext).Add(new TexasTripleBurger());
         }
 
         /// <summary>
@@ -93,7 +96,7 @@ namespace CowboyCafe.PointOfSale
         /// <param name="e"></param>
         private void AddAngryChicken_Click(object sender, RoutedEventArgs e)
         {
-            ((Order)DataContext).Add(new AngryChicken() { Pickle = false });
+            ((Order)DataContext).Add(new AngryChicken());
         }
         #endregion
 

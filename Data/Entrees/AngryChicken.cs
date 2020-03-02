@@ -6,14 +6,20 @@
 
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace CowboyCafe.Data
 {
     /// <summary>
     /// A class representing the Angry Chicken entree
     /// </summary>
-    public class AngryChicken : Entree
+    public class AngryChicken : Entree, INotifyPropertyChanged
     {
+        /// <summary>
+        /// Event to be activated whenever certain properties are changed
+        /// </summary>
+        public override event PropertyChangedEventHandler PropertyChanged;
+
         /// <summary>
         /// The price of the chicken
         /// </summary>
@@ -36,24 +42,31 @@ namespace CowboyCafe.Data
             }
         }
 
-        private bool bread = true;
+        private bool _bread = true;
         /// <summary>
         /// Wether or not to have bread
         /// </summary>
         public bool Bread
         {
-            get { return bread; }
-            set { bread = value; }
+            get { return _bread; }
+            set {
+                _bread = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Bread"));
+            }
         }
 
-        private bool pickle = true;
+        private bool _pickle = true;
         /// <summary>
         /// Wether or not to have pickle
         /// </summary>
         public bool Pickle
         {
-            get { return pickle; }
-            set { pickle = value; }
+            get { return _pickle; }
+            set
+            {
+                _pickle = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Pickle"));
+            }
         }
 
         /// <summary>
@@ -65,8 +78,8 @@ namespace CowboyCafe.Data
             {
                 var instructions = new List<String>();
 
-                if (!bread) instructions.Add("hold bread");
-                if (!pickle) instructions.Add("hold pickle");
+                if (!Bread) instructions.Add("hold bread");
+                if (!Pickle) instructions.Add("hold pickle");
 
                 return instructions;
             }

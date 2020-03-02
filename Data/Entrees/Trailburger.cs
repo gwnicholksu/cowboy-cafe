@@ -7,14 +7,20 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace CowboyCafe.Data
 {
     /// <summary>
     /// A class representing the Trailburger entree
     /// </summary>
-    public class TrailBurger : Entree
+    public class TrailBurger : Entree, INotifyPropertyChanged
     {
+        /// <summary>
+        /// Event to be activated whenever certain properties are changed
+        /// </summary>
+        public override event PropertyChangedEventHandler PropertyChanged;
+
         /// <summary>
         /// The price of the burger
         /// </summary>
@@ -37,54 +43,74 @@ namespace CowboyCafe.Data
             }
         }
 
-        private bool ketchup = true;
+        private bool _ketchup = true;
         /// <summary>
         /// Wether or not to have ketchup
         /// </summary>
         public bool Ketchup
         {
-            get { return ketchup; }
-            set { ketchup = value; }
+            get { return _ketchup; }
+            set
+            {
+                _ketchup = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ketchup"));
+            }
         }
 
-        private bool mustard = true;
+        private bool _mustard = true;
         /// <summary>
         /// Wether or not to have mustard
         /// </summary>
         public bool Mustard
         {
-            get { return mustard; }
-            set { mustard = value; }
+            get { return _mustard; }
+            set
+            {
+                _mustard = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Mustard"));
+            }
         }
 
-        private bool pickle = true;
+        private bool _pickle = true;
         /// <summary>
         /// Wether or not to have pickle
         /// </summary>
         public bool Pickle
         {
-            get { return pickle; }
-            set { pickle = value; }
+            get { return _pickle; }
+            set
+            {
+                _pickle = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Pickle"));
+            }
         }
 
-        private bool cheese = true;
+        private bool _cheese = true;
         /// <summary>
         /// Wether or not to have cheese
         /// </summary>
         public bool Cheese
         {
-            get { return cheese; }
-            set { cheese = value; }
+            get { return _cheese; }
+            set
+            {
+                _cheese = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Cheese"));
+            }
         }
 
-        private bool bun = true;
+        private bool _bun = true;
         /// <summary>
         /// Wether or not to have a bun
         /// </summary>
         public bool Bun
         {
-            get { return bun; }
-            set { bun = value; }
+            get { return _bun; }
+            set
+            {
+                _bun = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Bun"));
+            }
         }
 
         /// <summary>
@@ -96,11 +122,11 @@ namespace CowboyCafe.Data
             {
                 var instructions = new List<String>();
 
-                if (!ketchup) instructions.Add("hold ketchup");
-                if (!pickle) instructions.Add("hold pickle");
-                if (!mustard) instructions.Add("hold mustard");
-                if (!cheese) instructions.Add("hold cheese");
-                if (!bun) instructions.Add("hold bun");
+                if (!Ketchup) instructions.Add("hold ketchup");
+                if (!Pickle) instructions.Add("hold pickle");
+                if (!Mustard) instructions.Add("hold mustard");
+                if (!Cheese) instructions.Add("hold cheese");
+                if (!Bun) instructions.Add("hold bun");
 
                 return instructions;
             }

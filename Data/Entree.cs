@@ -7,6 +7,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace CowboyCafe.Data
 {
@@ -14,7 +15,7 @@ namespace CowboyCafe.Data
     /// <summary>
     /// The base class for an entree
     /// </summary>
-    public abstract class Entree : IOrderItem
+    public abstract class Entree : IOrderItem, INotifyPropertyChanged
     {
         /// <summary>
         /// The number of calories in the entree
@@ -30,5 +31,10 @@ namespace CowboyCafe.Data
         /// The special instructions for this entree 
         /// </summary>
         public abstract List<String> SpecialInstructions { get; }
+
+        /// <summary>
+        /// Event to be activated whenever certain properties are changed
+        /// </summary>
+        public abstract event PropertyChangedEventHandler PropertyChanged;
     }
 }

@@ -70,6 +70,7 @@ namespace CowboyCafe.Data
             items.Add(item);
             Subtotal += item.Price;
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items"));
+            item.PropertyChanged += ItemChanged;
         }
 
         /// <summary>
@@ -81,6 +82,13 @@ namespace CowboyCafe.Data
             items.Remove(item);
             Subtotal -= item.Price;
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items"));
+            item.PropertyChanged -= ItemChanged;
+        }
+
+        private void ItemChanged(object sender, PropertyChangedEventArgs e)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items"));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Subtotal"));
         }
     }
 }

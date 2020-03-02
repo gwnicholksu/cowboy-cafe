@@ -1,18 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace CowboyCafe.Data
 {
     /// <summary>
     /// A base class representing a side
     /// </summary>
-    public abstract class Side : IOrderItem
+    public abstract class Side : IOrderItem, INotifyPropertyChanged
     {
+        private Size _size;
         /// <summary>
         /// Gets the size of the entree
         /// </summary>
-        public Size Size { get; set; }
+        public Size Size
+        {
+            get { return _size; }
+            set
+            {
+                _size = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
+            }
+        }
 
         /// <summary>
         /// Gets the price of the side
@@ -33,5 +43,10 @@ namespace CowboyCafe.Data
                 return new List<string>();
             }
         }
+
+        /// <summary>
+        /// Event to be activated whenever certain properties are changed
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
     }
 }

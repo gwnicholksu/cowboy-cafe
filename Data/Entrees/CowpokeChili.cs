@@ -6,52 +6,70 @@
 
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace CowboyCafe.Data
 {
     /// <summary>
     /// A class representing the Cowpoke Chili entree
     /// </summary>
-    public class CowpokeChili : Entree
+    public class CowpokeChili : Entree, INotifyPropertyChanged
     {
-        private bool cheese = true;
+        /// <summary>
+        /// Event to be activated whenever certain properties are changed
+        /// </summary>
+        public override event PropertyChangedEventHandler PropertyChanged;
+
+        private bool _cheese = true;
         /// <summary>
         /// If the chili is topped with cheese
         /// </summary>
         public bool Cheese
         {
-            get { return cheese; }
-            set { cheese = value; }
+            get { return _cheese; }
+            set {
+                _cheese = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Cheese"));
+            }
         }
 
-        private bool sourCream = true;
+        private bool _sourCream = true;
         /// <summary>
         /// If the chili is topped with sour cream
         /// </summary>
         public bool SourCream
         {
-            get { return sourCream; }
-            set { sourCream = value; }
+            get { return _sourCream; }
+            set {
+                _sourCream = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SourCream"));
+            }
         }
 
-        private bool greenOnions = true;
+        private bool _greenOnions = true;
         /// <summary>
         /// If the chili is topped with green onions
         /// </summary>
         public bool GreenOnions
         {
-            get { return greenOnions; }
-            set { greenOnions = value; }
+            get { return _greenOnions; }
+            set {
+                _greenOnions = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("GreenOnions"));
+            }
         }
 
-        private bool tortillaStrips = true;
+        private bool _tortillaStrips = true;
         /// <summary>
         /// If the chili is topped with tortilla strips
         /// </summary>
         public bool TortillaStrips
         {
-            get { return tortillaStrips; }
-            set { tortillaStrips = value; }
+            get { return _tortillaStrips; }
+            set {
+                _tortillaStrips = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("TortillaStrips"));
+            }
         }
 
         /// <summary>
@@ -85,10 +103,10 @@ namespace CowboyCafe.Data
             {
                 var instructions = new List<string>();
 
-                if (!cheese) instructions.Add("hold cheese");
-                if (!sourCream) instructions.Add("hold sour cream");
-                if (!greenOnions) instructions.Add("hold green onions");
-                if (!tortillaStrips) instructions.Add("hold tortilla strips");
+                if (!Cheese) instructions.Add("hold cheese");
+                if (!SourCream) instructions.Add("hold sour cream");
+                if (!GreenOnions) instructions.Add("hold green onions");
+                if (!TortillaStrips) instructions.Add("hold tortilla strips");
 
                 return instructions;
             }

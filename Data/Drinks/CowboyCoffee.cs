@@ -7,14 +7,20 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace CowboyCafe.Data
 {
     /// <summary>
     /// A class for the Cowboy Coffee drink
     /// </summary>
-    public class CowboyCoffee : Drink
+    public class CowboyCoffee : Drink, INotifyPropertyChanged
     {
+        /// <summary>
+        /// Event to be activated whenever certain properties are changed
+        /// </summary>
+        public override event PropertyChangedEventHandler PropertyChanged;
+
         /// <summary>
         /// The number of calories in the drink
         /// </summary>
@@ -51,20 +57,47 @@ namespace CowboyCafe.Data
             }
         }
 
+        private bool _decaf = false;
         /// <summary>
         /// Whether the coffee should be decalf
         /// </summary>
-        public bool Decaf { get; set; } = false;
+        public bool Decaf
+        {
+            get { return _decaf; }
+            set {
+                _decaf = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Decaf"));
 
+            }
+        }
+
+        private bool _roomForCream = false;
         /// <summary>
         /// Whether there should be room for cream
         /// </summary>
-        public bool RoomForCream { get; set; } = false;
+        public bool RoomForCream
+        {
+            get { return _roomForCream; }
+            set
+            {
+                _roomForCream = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("RoomForCream"));
+            }
+        }
 
+        private bool _ice = false;
         /// <summary>
         /// Whether there should be ice in the drink
         /// </summary>
-        public override bool Ice { get; set; } = false;
+        public override bool Ice
+        {
+            get { return _ice; }
+            set
+            {
+                _ice = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ice"));
+            }
+        }
 
         /// <summary>
         /// The special instructions for this drink

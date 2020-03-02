@@ -7,14 +7,20 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace CowboyCafe.Data
 {
     /// <summary>
     /// A class for the Texas Tea drink
     /// </summary>
-    public class TexasTea : Drink
+    public class TexasTea : Drink, INotifyPropertyChanged
     {
+        /// <summary>
+        /// Event to be activated whenever certain properties are changed
+        /// </summary>
+        public override event PropertyChangedEventHandler PropertyChanged;
+
         /// <summary>
         /// The number of calories in the drink
         /// </summary>
@@ -60,15 +66,47 @@ namespace CowboyCafe.Data
             }
         }
 
+        private bool _ice = true;
+        /// <summary>
+        /// Whether there should be ice in the drink
+        /// </summary>
+        public override bool Ice
+        {
+            get { return _ice; }
+            set
+            {
+                _ice = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ice"));
+            }
+        }
+
+        private bool _sweet = true;
         /// <summary>
         /// Whether the tea should be sweetened
         /// </summary>
-        public bool Sweet { get; set; } = true;
+        public bool Sweet
+        {
+            get { return _sweet; }
+            set
+            {
+                _sweet = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Sweet"));
+            }
+        }
 
+        private bool _lemon;
         /// <summary>
         /// Whether there should be lemon
         /// </summary>
-        public bool Lemon { get; set; } = false;
+        public bool Lemon
+        {
+            get { return _lemon; }
+            set
+            {
+                _lemon = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Lemon"));
+            }
+        }
 
         /// <summary>
         /// The special instructions for this drink

@@ -26,7 +26,16 @@ namespace CowboyCafe.PointOfSale
         {
             DataContext = new Order();
             InitializeComponent();
-            SelectHolder.Child = new MenuItemSelectionControl();
+            SwapScreen(new MenuItemSelectionControl());
+        }
+
+        /// <summary>
+        /// Swap the scren to a specified element
+        /// </summary>
+        /// <param name="elem">The element to swap to</param>
+        public void SwapScreen(UIElement elem)
+        {
+            SelectHolder.Child = elem;
         }
 
         /// <summary>
@@ -37,7 +46,7 @@ namespace CowboyCafe.PointOfSale
         private void CancelOrder(object sender, RoutedEventArgs e)
         {
             DataContext = new Order();
-            SelectHolder.Child = new MenuItemSelectionControl();
+            SwapScreen(new MenuItemSelectionControl());
         }
 
         /// <summary>
@@ -48,12 +57,12 @@ namespace CowboyCafe.PointOfSale
         private void CompleteOrder(object sender, RoutedEventArgs e)
         {
             DataContext = new Order();
-            SelectHolder.Child = new MenuItemSelectionControl();
+            SwapScreen(new MenuItemSelectionControl());
         }
 
         private void ItemSelectionButton_Click(object sender, RoutedEventArgs e)
         {
-            SelectHolder.Child = new MenuItemSelectionControl();
+            SwapScreen(new MenuItemSelectionControl());
         }
     }
 }

@@ -11,6 +11,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using CowboyCafe.Data;
+using CowboyCafe.ExtensionMethods;
+using System.Reflection;
 
 namespace CowboyCafe.PointOfSale
 {
@@ -19,6 +21,8 @@ namespace CowboyCafe.PointOfSale
     /// </summary>
     public partial class MenuItemSelectionControl : UserControl
     {
+        private OrderControl orderControl;
+
         /// <summary>
         /// Initialize the Menu Selection Control
         /// </summary>
@@ -27,196 +31,46 @@ namespace CowboyCafe.PointOfSale
             InitializeComponent();
         }
 
-        #region Entree Handlers
-
         /// <summary>
-        /// Event Handler for a Button
+        /// Method to run when the control is loaded
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void AddCowpokeChiliButton_Click(object sender, RoutedEventArgs e)
+        public void OnLoad(object sender, RoutedEventArgs e)
         {
-            var item = new CowpokeChili();
-            ((Order)DataContext).Add(item);
-            ((Border)Parent).Child = new ModifyItemControl(item);
-
+            orderControl = this.FindAncestor<OrderControl>();
         }
 
         /// <summary>
-        /// Event Handler for a Button
+        /// Find the desired type from tag and add that item to the order
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void AddRustlersRibs_Click(object sender, RoutedEventArgs e)
+        private void OnItemAddButtonClicked(object sender, RoutedEventArgs e)
         {
-            var item = new RustlersRibs();
-            ((Order)DataContext).Add(item);
-            ((Border)Parent).Child = new ModifyItemControl(item);
+            IOrderItem item;
+
+            if(DataContext is Order order)
+            {
+                if (sender is Button button)
+                {
+                    Type itemType = Type.GetType(button.Tag as string);
+                    if (itemType != null)
+                    {
+                        var itemConstructor = itemType.GetConstructor(new Type[] { });
+
+                        if (itemConstructor != null)
+                        {
+                            object possibleItem = itemConstructor.Invoke(new Type[] { });
+                            if(possibleItem is IOrderItem)
+                            { 
+                                // Actually add the item
+                                item = possibleItem as IOrderItem;
+                                order.Add(item);
+                                orderControl.SwapScreen(new ModifyItemControl(item));
+                            }
+                        }
+                    }
+                }
+            }
         }
-
-        /// <summary>
-        /// Event Handler for a Button
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void AddPecosPulledPork_Click(object sender, RoutedEventArgs e)
-        {
-            var item = new PecosPulledPork();
-            ((Order)DataContext).Add(item);
-            ((Border)Parent).Child = new ModifyItemControl(item);
-        }
-
-        /// <summary>
-        /// Event Handler for a Button
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void AddTrailBurger_Click(object sender, RoutedEventArgs e)
-        {
-            var item = new TrailBurger();
-            ((Order)DataContext).Add(item);
-            ((Border)Parent).Child = new ModifyItemControl(item);
-        }
-
-        /// <summary>
-        /// Event Handler for a Button
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void AddDakotaDoubleBurger_Click(object sender, RoutedEventArgs e)
-        {
-            var item = new DakotaDoubleBurger();
-            ((Order)DataContext).Add(item);
-            ((Border)Parent).Child = new ModifyItemControl(item);
-        }
-
-        /// <summary>
-        /// Event Handler for a Button
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void AddTexasTripleBurger_Click(object sender, RoutedEventArgs e)
-        {
-            var item = new TexasTripleBurger();
-            ((Order)DataContext).Add(item);
-            ((Border)Parent).Child = new ModifyItemControl(item);
-        }
-
-        /// <summary>
-        /// Event Handler for a Button
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void AddAngryChicken_Click(object sender, RoutedEventArgs e)
-        {
-            var item = new AngryChicken();
-            ((Order)DataContext).Add(item);
-            ((Border)Parent).Child = new ModifyItemControl(item);
-        }
-        #endregion
-
-        #region Side Handlers
-
-        /// <summary>
-        /// Event Handler for a Button
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void AddChiliCheeseFries_Click(object sender, RoutedEventArgs e)
-        {
-            var item = new ChiliCheeseFries();
-            ((Order)DataContext).Add(item);
-            ((Border)Parent).Child = new ModifyItemControl(item);
-        }
-
-        /// <summary>
-        /// Event Handler for a Button
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void AddCornDodgers_Click(object sender, RoutedEventArgs e)
-        {
-            var item = new CornDodgers();
-            ((Order)DataContext).Add(item);
-            ((Border)Parent).Child = new ModifyItemControl(item);
-        }
-
-        /// <summary>
-        /// Event Handler for a Button
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void AddPanDeCampo_Click(object sender, RoutedEventArgs e)
-        {
-            var item = new PanDeCampo();
-            ((Order)DataContext).Add(item);
-            ((Border)Parent).Child = new ModifyItemControl(item);
-        }
-
-        /// <summary>
-        /// Event Handler for a Button
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void AddBakedBeans_Click(object sender, RoutedEventArgs e)
-        {
-            var item = new BakedBeans();
-            ((Order)DataContext).Add(item);
-            ((Border)Parent).Child = new ModifyItemControl(item);
-        }
-
-        #endregion
-
-        #region Drink Handlers
-
-        /// <summary>
-        /// Event Handler for a Button
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void AddJerkedSoda_Click(object sender, RoutedEventArgs e)
-        {
-            var item = new JerkedSoda();
-            ((Order)DataContext).Add(item);
-            ((Border)Parent).Child = new ModifyItemControl(item);
-        }
-
-        /// <summary>
-        /// Event Handler for a Button
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void AddTexasTea_Click(object sender, RoutedEventArgs e)
-        {
-            var item = new TexasTea();
-            ((Order)DataContext).Add(item);
-            ((Border)Parent).Child = new ModifyItemControl(item);
-        }
-
-        /// <summary>
-        /// Event Handler for a Button
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void AddCowboyCoffe_Click(object sender, RoutedEventArgs e)
-        {
-            var item = new CowboyCoffee();
-            ((Order)DataContext).Add(item);
-            ((Border)Parent).Child = new ModifyItemControl(item);
-        }
-
-        /// <summary>
-        /// Event Handler for a Button
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void AddWater_Click(object sender, RoutedEventArgs e)
-        {
-            var item = new Water();
-            ((Order)DataContext).Add(item);
-            ((Border)Parent).Child = new ModifyItemControl(item);
-        }
-
-        #endregion
     }
 }

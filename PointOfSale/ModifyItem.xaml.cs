@@ -44,12 +44,9 @@ namespace CowboyCafe.PointOfSale
             if (type.GetProperty("Tomato") != null) TomatoCheck.Visibility = Visibility.Visible;
             if (type.GetProperty("Lettuce") != null) LettuceCheck.Visibility = Visibility.Visible;
             if (type.GetProperty("Mayo") != null) MayoCheck.Visibility = Visibility.Visible;
-
-
-
-
-
-
+            if (type.GetProperty("Bun") != null) BunCheck.Visibility = Visibility.Visible;
+            if (type.GetProperty("Bacon") != null) BaconCheck.Visibility = Visibility.Visible;
+            if (type.GetProperty("Egg") != null) EggCheck.Visibility = Visibility.Visible;
         }
 
         /// <summary>

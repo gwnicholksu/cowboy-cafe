@@ -49,7 +49,9 @@ namespace CowboyCafe.PointOfSale
         /// <param name="e"></param>
         private void AddRustlersRibs_Click(object sender, RoutedEventArgs e)
         {
-            ((Order)DataContext).Add(new RustlersRibs());
+            var item = new RustlersRibs();
+            ((Order)DataContext).Add(item);
+            ((Border)Parent).Child = new ModifyItem(item);
         }
 
         /// <summary>
@@ -59,7 +61,9 @@ namespace CowboyCafe.PointOfSale
         /// <param name="e"></param>
         private void AddPecosPulledPork_Click(object sender, RoutedEventArgs e)
         {
-            ((Order)DataContext).Add(new PecosPulledPork());
+            var item = new PecosPulledPork();
+            ((Order)DataContext).Add(item);
+            ((Border)Parent).Child = new ModifyItem(item);
         }
 
         /// <summary>
@@ -69,7 +73,9 @@ namespace CowboyCafe.PointOfSale
         /// <param name="e"></param>
         private void AddTrailBurger_Click(object sender, RoutedEventArgs e)
         {
-            ((Order)DataContext).Add(new TrailBurger());
+            var item = new TrailBurger();
+            ((Order)DataContext).Add(item);
+            ((Border)Parent).Child = new ModifyItem(item);
         }
 
         /// <summary>
@@ -79,7 +85,9 @@ namespace CowboyCafe.PointOfSale
         /// <param name="e"></param>
         private void AddDakotaDoubleBurger_Click(object sender, RoutedEventArgs e)
         {
-            ((Order)DataContext).Add(new DakotaDoubleBurger());
+            var item = new DakotaDoubleBurger();
+            ((Order)DataContext).Add(item);
+            ((Border)Parent).Child = new ModifyItem(item);
         }
 
         /// <summary>
@@ -89,7 +97,9 @@ namespace CowboyCafe.PointOfSale
         /// <param name="e"></param>
         private void AddTexasTripleBurger_Click(object sender, RoutedEventArgs e)
         {
-            ((Order)DataContext).Add(new TexasTripleBurger());
+            var item = new TexasTripleBurger();
+            ((Order)DataContext).Add(item);
+            ((Border)Parent).Child = new ModifyItem(item);
         }
 
         /// <summary>
@@ -99,7 +109,9 @@ namespace CowboyCafe.PointOfSale
         /// <param name="e"></param>
         private void AddAngryChicken_Click(object sender, RoutedEventArgs e)
         {
-            ((Order)DataContext).Add(new AngryChicken());
+            var item = new AngryChicken();
+            ((Order)DataContext).Add(item);
+            ((Border)Parent).Child = new ModifyItem(item);
         }
         #endregion
 

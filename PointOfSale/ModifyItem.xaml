@@ -19,9 +19,17 @@
             <Setter Property="Margin" Value="10,5,10,5"/>
             <Setter Property="Visibility" Value="Collapsed"/>
         </Style>
+        <Style TargetType="TextBlock" x:Key="TextHeader">
+            <Setter Property="Margin" Value="0,5,0,5"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="TextAlignment" Value="Center" />
+        </Style>
     </UserControl.Resources>
  
     <StackPanel>
+        <TextBlock Style="{StaticResource TextHeader}" Text="{Binding UpdateSourceTrigger=PropertyChanged}" />
+        
         <UniformGrid Name="SizePanel" Visibility="Collapsed" Rows="1">
             <Button Tag="SizeSmall" Click="SetSize">Small</Button>
             <Button Tag="SizeMedium" Click="SetSize">Medium</Button>
@@ -83,14 +91,14 @@
         <Viewbox Name="MayoCheck">
                 <CheckBox IsChecked="{Binding Path=Mayo}">Mayo</CheckBox>
         </Viewbox>
-
-
-
-
-
-
-
-
-
+        <Viewbox Name="BunCheck">
+                <CheckBox IsChecked="{Binding Path=Bun}">Bun</CheckBox>
+        </Viewbox>
+        <Viewbox Name="BaconCheck">
+                <CheckBox IsChecked="{Binding Path=Bacon}">Bacon</CheckBox>
+        </Viewbox>
+        <Viewbox Name="EggCheck">
+                <CheckBox IsChecked="{Binding Path=Egg}">Egg</CheckBox>
+        </Viewbox>
     </StackPanel>
 </UserControl>

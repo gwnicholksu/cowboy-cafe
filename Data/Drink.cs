@@ -29,7 +29,7 @@ namespace CowboyCafe.Data
         /// <summary>
         /// The size of the drink
         /// </summary>
-        public Size Size { get; set; } = Size.Small;
+        public abstract Size Size { get; set; }
 
         /// <summary>
         /// Whether there should be ice in the drink

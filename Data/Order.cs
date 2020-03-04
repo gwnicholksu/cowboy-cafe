@@ -87,6 +87,11 @@ namespace CowboyCafe.Data
 
         private void ItemChanged(object sender, PropertyChangedEventArgs e)
         {
+            Subtotal = 0;
+            foreach(var item in Items)
+            {
+                Subtotal += item.Price;
+            }
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items"));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Subtotal"));
         }

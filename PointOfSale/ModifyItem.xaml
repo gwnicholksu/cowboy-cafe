@@ -6,7 +6,91 @@
              xmlns:local="clr-namespace:CowboyCafe.PointOfSale"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
+    <UserControl.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Height" Value="50px"/>
+            <Setter Property="Margin" Value="10,5,10,5"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        </Style>
+        <Style TargetType="Viewbox">
+            <Setter Property="Height" Value="50px"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="Margin" Value="10,5,10,5"/>
+            <Setter Property="Visibility" Value="Collapsed"/>
+        </Style>
+    </UserControl.Resources>
+ 
+    <StackPanel>
+        <UniformGrid Name="SizePanel" Visibility="Collapsed" Rows="1">
+            <Button Tag="SizeSmall" Click="SetSize">Small</Button>
+            <Button Tag="SizeMedium" Click="SetSize">Medium</Button>
+            <Button Tag="SizeLarge" Click="SetSize">Large</Button>
+        </UniformGrid>
+        <UniformGrid Name="SodaPanel" Visibility="Collapsed" Rows="1">
+            <Button Tag="CreamSoda" Click="SetSoda">Cream Soda</Button>
+            <Button Tag="OrangeSoda" Click="SetSoda">Orange Soda</Button>
+            <Button Tag="Sarsparilla" Click="SetSoda">Sarsparilla</Button>
+            <Button Tag="BirchBeer" Click="SetSoda">Birch Beer</Button>
+            <Button Tag="RootBeer" Click="SetSoda">Root Beer</Button>
+        </UniformGrid>
 
-    </Grid>
+        <Viewbox Name="IceCheck">
+                <CheckBox IsChecked="{Binding Path=Ice}">Ice</CheckBox>
+        </Viewbox>
+        <Viewbox Name="RoomForCreamCheck">
+                <CheckBox IsChecked="{Binding Path=RoomForCream}">Room for Cream</CheckBox>
+        </Viewbox>
+        <Viewbox Name="DecafCheck">
+                <CheckBox IsChecked="{Binding Path=Decaf}">Decaf</CheckBox>
+        </Viewbox>
+        <Viewbox Name="SweetCheck">
+                <CheckBox IsChecked="{Binding Path=Sweet}">Sweet</CheckBox>
+        </Viewbox>
+        <Viewbox Name="LemonCheck">
+            <CheckBox IsChecked="{Binding Path=Lemon}">Lemon</CheckBox>
+        </Viewbox>
+        <Viewbox Name="BreadCheck">
+                <CheckBox IsChecked="{Binding Path=Bread}">Bread</CheckBox>
+        </Viewbox>
+        <Viewbox Name="PickleCheck">
+                <CheckBox IsChecked="{Binding Path=Pickle}">Pickle</CheckBox>
+        </Viewbox>
+        <Viewbox Name="CheeseCheck">
+                <CheckBox IsChecked="{Binding Path=Cheese}">Cheese</CheckBox>
+        </Viewbox>
+        <Viewbox Name="SourCreamCheck">
+            <CheckBox IsChecked="{Binding Path=SourCream}">Sour Cream</CheckBox>
+        </Viewbox>
+        <Viewbox Name="GreenOnionsCheck">
+                <CheckBox IsChecked="{Binding Path=GreenOnions}">Green Onions</CheckBox>
+        </Viewbox>
+        <Viewbox Name="TortillaStripsCheck">
+                <CheckBox IsChecked="{Binding Path=TortillaStrips}">Tortilla Strips</CheckBox>
+        </Viewbox>
+        <Viewbox Name="KetchupCheck">
+                <CheckBox IsChecked="{Binding Path=Ketchup}">Ketchup</CheckBox>
+        </Viewbox>
+        <Viewbox Name="MustardCheck">
+                <CheckBox IsChecked="{Binding Path=Mustard}">Mustard</CheckBox>
+        </Viewbox>
+        <Viewbox Name="TomatoCheck">
+                <CheckBox IsChecked="{Binding Path=Tomato}">Tomato</CheckBox>
+        </Viewbox>
+        <Viewbox Name="LettuceCheck">
+                <CheckBox IsChecked="{Binding Path=Lettuce}">Lettuce</CheckBox>
+        </Viewbox>
+        <Viewbox Name="MayoCheck">
+                <CheckBox IsChecked="{Binding Path=Mayo}">Mayo</CheckBox>
+        </Viewbox>
+
+
+
+
+
+
+
+
+
+    </StackPanel>
 </UserControl>

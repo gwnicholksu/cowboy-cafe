@@ -26,6 +26,7 @@ namespace CowboyCafe.PointOfSale
         {
             DataContext = new Order();
             InitializeComponent();
+            SelectHolder.Child = new MenuItemSelectionControl();
         }
 
         /// <summary>
@@ -46,6 +47,11 @@ namespace CowboyCafe.PointOfSale
         private void CompleteOrder(object sender, RoutedEventArgs e)
         {
             DataContext = new Order();
+        }
+
+        private void ItemSelectionButton_Click(object sender, RoutedEventArgs e)
+        {
+            SelectHolder.Child = new MenuItemSelectionControl();
         }
     }
 }

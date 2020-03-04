@@ -87,6 +87,22 @@ namespace CowboyCafe.Data
             }
         }
 
+        public Size _size = Size.Small;
+        /// <summary>
+        /// The size of the drink
+        /// </summary>
+        public override Size Size
+        {
+            get { return _size; }
+            set
+            {
+                _size = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
+            }
+        }
+
+
+
         /// <summary>
         /// Get a lice string representation of this drink
         /// </summary>

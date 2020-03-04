@@ -38,7 +38,7 @@ namespace CowboyCafe.PointOfSale
         {
             var item = new CowpokeChili();
             ((Order)DataContext).Add(item);
-            ((Border)Parent).Child = new ModifyItem(item);
+            ((Border)Parent).Child = new ModifyItemControl(item);
 
         }
 
@@ -51,7 +51,7 @@ namespace CowboyCafe.PointOfSale
         {
             var item = new RustlersRibs();
             ((Order)DataContext).Add(item);
-            ((Border)Parent).Child = new ModifyItem(item);
+            ((Border)Parent).Child = new ModifyItemControl(item);
         }
 
         /// <summary>
@@ -63,7 +63,7 @@ namespace CowboyCafe.PointOfSale
         {
             var item = new PecosPulledPork();
             ((Order)DataContext).Add(item);
-            ((Border)Parent).Child = new ModifyItem(item);
+            ((Border)Parent).Child = new ModifyItemControl(item);
         }
 
         /// <summary>
@@ -75,7 +75,7 @@ namespace CowboyCafe.PointOfSale
         {
             var item = new TrailBurger();
             ((Order)DataContext).Add(item);
-            ((Border)Parent).Child = new ModifyItem(item);
+            ((Border)Parent).Child = new ModifyItemControl(item);
         }
 
         /// <summary>
@@ -87,7 +87,7 @@ namespace CowboyCafe.PointOfSale
         {
             var item = new DakotaDoubleBurger();
             ((Order)DataContext).Add(item);
-            ((Border)Parent).Child = new ModifyItem(item);
+            ((Border)Parent).Child = new ModifyItemControl(item);
         }
 
         /// <summary>
@@ -99,7 +99,7 @@ namespace CowboyCafe.PointOfSale
         {
             var item = new TexasTripleBurger();
             ((Order)DataContext).Add(item);
-            ((Border)Parent).Child = new ModifyItem(item);
+            ((Border)Parent).Child = new ModifyItemControl(item);
         }
 
         /// <summary>
@@ -111,7 +111,7 @@ namespace CowboyCafe.PointOfSale
         {
             var item = new AngryChicken();
             ((Order)DataContext).Add(item);
-            ((Border)Parent).Child = new ModifyItem(item);
+            ((Border)Parent).Child = new ModifyItemControl(item);
         }
         #endregion
 
@@ -126,7 +126,7 @@ namespace CowboyCafe.PointOfSale
         {
             var item = new ChiliCheeseFries();
             ((Order)DataContext).Add(item);
-            ((Border)Parent).Child = new ModifyItem(item);
+            ((Border)Parent).Child = new ModifyItemControl(item);
         }
 
         /// <summary>
@@ -138,7 +138,7 @@ namespace CowboyCafe.PointOfSale
         {
             var item = new CornDodgers();
             ((Order)DataContext).Add(item);
-            ((Border)Parent).Child = new ModifyItem(item);
+            ((Border)Parent).Child = new ModifyItemControl(item);
         }
 
         /// <summary>
@@ -150,7 +150,7 @@ namespace CowboyCafe.PointOfSale
         {
             var item = new PanDeCampo();
             ((Order)DataContext).Add(item);
-            ((Border)Parent).Child = new ModifyItem(item);
+            ((Border)Parent).Child = new ModifyItemControl(item);
         }
 
         /// <summary>
@@ -162,7 +162,7 @@ namespace CowboyCafe.PointOfSale
         {
             var item = new BakedBeans();
             ((Order)DataContext).Add(item);
-            ((Border)Parent).Child = new ModifyItem(item);
+            ((Border)Parent).Child = new ModifyItemControl(item);
         }
 
         #endregion
@@ -178,7 +178,7 @@ namespace CowboyCafe.PointOfSale
         {
             var item = new JerkedSoda();
             ((Order)DataContext).Add(item);
-            ((Border)Parent).Child = new ModifyItem(item);
+            ((Border)Parent).Child = new ModifyItemControl(item);
         }
 
         /// <summary>
@@ -190,7 +190,7 @@ namespace CowboyCafe.PointOfSale
         {
             var item = new TexasTea();
             ((Order)DataContext).Add(item);
-            ((Border)Parent).Child = new ModifyItem(item);
+            ((Border)Parent).Child = new ModifyItemControl(item);
         }
 
         /// <summary>
@@ -202,7 +202,7 @@ namespace CowboyCafe.PointOfSale
         {
             var item = new CowboyCoffee();
             ((Order)DataContext).Add(item);
-            ((Border)Parent).Child = new ModifyItem(item);
+            ((Border)Parent).Child = new ModifyItemControl(item);
         }
 
         /// <summary>
@@ -214,7 +214,7 @@ namespace CowboyCafe.PointOfSale
         {
             var item = new Water();
             ((Order)DataContext).Add(item);
-            ((Border)Parent).Child = new ModifyItem(item);
+            ((Border)Parent).Child = new ModifyItemControl(item);
         }
 
         #endregion

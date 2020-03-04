@@ -37,6 +37,7 @@ namespace CowboyCafe.PointOfSale
         private void CancelOrder(object sender, RoutedEventArgs e)
         {
             DataContext = new Order();
+            SelectHolder.Child = new MenuItemSelectionControl();
         }
 
         /// <summary>
@@ -47,6 +48,7 @@ namespace CowboyCafe.PointOfSale
         private void CompleteOrder(object sender, RoutedEventArgs e)
         {
             DataContext = new Order();
+            SelectHolder.Child = new MenuItemSelectionControl();
         }
 
         private void ItemSelectionButton_Click(object sender, RoutedEventArgs e)

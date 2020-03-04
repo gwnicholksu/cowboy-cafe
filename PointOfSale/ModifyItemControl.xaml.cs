@@ -58,18 +58,22 @@ namespace CowboyCafe.PointOfSale
         private void SetSize(object sender, RoutedEventArgs e)
         {
             var sizeProp = DataContext.GetType().GetProperty("Size");
+            if (sizeProp == null) return;
 
-            switch (((Button)sender).Tag)
+            if(sender is Button)
             {
-                case "SizeSmall":
-                    sizeProp.SetValue(DataContext, CowboyCafe.Data.Size.Small);
-                    break;
-                case "SizeMedium":
-                    sizeProp.SetValue(DataContext, CowboyCafe.Data.Size.Medium);
-                    break;
-                case "SizeLarge":
-                    sizeProp.SetValue(DataContext, CowboyCafe.Data.Size.Large);
-                    break;
+                switch (((Button)sender).Tag)
+                {
+                    case "SizeSmall":
+                        sizeProp.SetValue(DataContext, CowboyCafe.Data.Size.Small);
+                        break;
+                    case "SizeMedium":
+                        sizeProp.SetValue(DataContext, CowboyCafe.Data.Size.Medium);
+                        break;
+                    case "SizeLarge":
+                        sizeProp.SetValue(DataContext, CowboyCafe.Data.Size.Large);
+                        break;
+                }
             }
         }
 
@@ -83,23 +87,26 @@ namespace CowboyCafe.PointOfSale
             var sodaProp = DataContext.GetType().GetProperty("Flavor");
             if (sodaProp == null) return;
 
-            switch (((Button)sender).Tag)
+            if(sender is Button)
             {
-                case "CreamSoda":
-                    sodaProp.SetValue(DataContext, SodaFlavor.CreamSoda);
-                    break;
-                case "OrangeSoda":
-                    sodaProp.SetValue(DataContext, SodaFlavor.OrangeSoda);
-                    break;
-                case "Sarsparilla":
-                    sodaProp.SetValue(DataContext, SodaFlavor.Sarsparilla);
-                    break;
-                case "BirchBeer":
-                    sodaProp.SetValue(DataContext, SodaFlavor.BirchBeer);
-                    break;
-                case "RootBeer":
-                    sodaProp.SetValue(DataContext, SodaFlavor.RootBeer);
-                    break;
+                switch (((Button)sender).Tag)
+                {
+                    case "CreamSoda":
+                        sodaProp.SetValue(DataContext, SodaFlavor.CreamSoda);
+                        break;
+                    case "OrangeSoda":
+                        sodaProp.SetValue(DataContext, SodaFlavor.OrangeSoda);
+                        break;
+                    case "Sarsparilla":
+                        sodaProp.SetValue(DataContext, SodaFlavor.Sarsparilla);
+                        break;
+                    case "BirchBeer":
+                        sodaProp.SetValue(DataContext, SodaFlavor.BirchBeer);
+                        break;
+                    case "RootBeer":
+                        sodaProp.SetValue(DataContext, SodaFlavor.RootBeer);
+                        break;
+                }
             }
         }
     }

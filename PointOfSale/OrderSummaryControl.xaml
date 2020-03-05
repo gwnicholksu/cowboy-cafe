@@ -7,7 +7,8 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <UserControl.Resources>
-        <Style TargetType="ListBoxItem"> <!-- To remove padding and expand -->
+        <Style TargetType="ListBoxItem">
+            <!-- To remove padding and expand -->
             <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
             <Setter Property="Template">
                 <Setter.Value>
@@ -16,6 +17,9 @@
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
+        </Style>
+        <Style TargetType="TextBlock">
+            <Setter Property="FontSize" Value="16"/>
         </Style>
     </UserControl.Resources>
     <DockPanel>
@@ -46,16 +50,13 @@
                                 <RowDefinition/>
                                 <RowDefinition/>
                             </Grid.RowDefinitions>
-                            <TextBlock Grid.Row="0" Grid.Column="0" Text="{Binding}"/>
-                            <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Path=Price, StringFormat=c}"/>
-                            <ListBox Grid.Row="1" Grid.Column="0" Margin="10,0,0,0" ItemsSource="{Binding Path=SpecialInstructions}" BorderThickness="0"/>
+                            <TextBlock FontSize="16" Grid.Row="0" Grid.Column="0" Text="{Binding}"/>
+                            <TextBlock FontSize="16" Grid.Row="0" Grid.Column="1" Text="{Binding Path=Price, StringFormat=c}"/>
+                            <ListBox FontSize="16" Grid.Row="1" Grid.Column="0" Margin="10,0,0,0" ItemsSource="{Binding Path=SpecialInstructions}" BorderThickness="0"/>
                         </Grid>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
         </Border>
-        
-
-        
     </DockPanel>
 </UserControl>

@@ -46,8 +46,6 @@ namespace CowboyCafe.PointOfSale
         /// <param name="e"></param>
         private void OnItemAddButtonClicked(object sender, RoutedEventArgs e)
         {
-            IOrderItem item;
-
             if(DataContext is Order order)
             {
                 if (sender is Button button)
@@ -56,14 +54,11 @@ namespace CowboyCafe.PointOfSale
                     if (itemType != null)
                     {
                         var itemConstructor = itemType.GetConstructor(new Type[] { });
-
                         if (itemConstructor != null)
                         {
                             object possibleItem = itemConstructor.Invoke(new Type[] { });
-                            if(possibleItem is IOrderItem)
+                            if(possibleItem is IOrderItem item)
                             { 
-                                // Actually add the item
-                                item = possibleItem as IOrderItem;
                                 order.Add(item);
                                 orderControl.SwapScreen(new ModifyItemControl(item));
                             }

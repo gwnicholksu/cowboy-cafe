@@ -60,7 +60,7 @@ namespace CowboyCafe.PointOfSale
             SwapScreen(new MenuItemSelectionControl());
         }
 
-        private void ItemSelectionButton_Click(object sender, RoutedEventArgs e)
+        private void ItemSelection(object sender, RoutedEventArgs e)
         {
             SwapScreen(new MenuItemSelectionControl());
         }

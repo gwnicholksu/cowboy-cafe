@@ -60,6 +60,11 @@ namespace CowboyCafe.PointOfSale
             SwapScreen(new MenuItemSelectionControl());
         }
 
+        /// <summary>
+        /// Handle button to bring back the menuitem selection control.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ItemSelection(object sender, RoutedEventArgs e)
         {
             SwapScreen(new MenuItemSelectionControl());

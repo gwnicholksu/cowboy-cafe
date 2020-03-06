@@ -36,23 +36,18 @@ namespace CowboyCafe.Data
         }
 
         /// <summary>
-        /// The private backing variable for the Subtotal property
-        /// </summary>
-        private double subtotal = 0;
-
-        /// <summary>
         /// The subtotal price for this order
         /// </summary>
         public double Subtotal
         {
             get
             {
-                return subtotal;
-            }
-            private set
-            {
-                subtotal = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Subtotal"));
+                double total = 0;
+                foreach (var item in Items)
+                {
+                    total += item.Price;
+                }
+                return total;
             }
         }
 
@@ -68,8 +63,7 @@ namespace CowboyCafe.Data
         public void Add(IOrderItem item)
         {
             items.Add(item);
-            Subtotal += item.Price;
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items"));
+            ItemChanged(this, new PropertyChangedEventArgs("Price"));
             item.PropertyChanged += ItemChanged;
         }
 
@@ -80,20 +74,21 @@ namespace CowboyCafe.Data
         public void Remove(IOrderItem item)
         {
             items.Remove(item);
-            Subtotal -= item.Price;
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items"));
+            ItemChanged(this, new PropertyChangedEventArgs("Price"));
             item.PropertyChanged -= ItemChanged;
         }
 
+        /// <summary>
+        /// Method for if any item has changed
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ItemChanged(object sender, PropertyChangedEventArgs e)
         {
-            Subtotal = 0;
-            foreach(var item in Items)
-            {
-                Subtotal += item.Price;
-            }
+
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items"));
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Subtotal"));
+            if(e.PropertyName == "Price")
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Subtotal"));
         }
     }
 }

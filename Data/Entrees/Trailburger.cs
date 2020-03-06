@@ -14,13 +14,8 @@ namespace CowboyCafe.Data
     /// <summary>
     /// A class representing the Trailburger entree
     /// </summary>
-    public class TrailBurger : Entree, INotifyPropertyChanged
+    public class TrailBurger : Entree
     {
-        /// <summary>
-        /// Event to be activated whenever certain properties are changed
-        /// </summary>
-        public override event PropertyChangedEventHandler PropertyChanged;
-
         /// <summary>
         /// The price of the burger
         /// </summary>
@@ -53,7 +48,7 @@ namespace CowboyCafe.Data
             set
             {
                 _ketchup = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ketchup"));
+                NotifyOfPropertyChange("Ketchup");
             }
         }
 
@@ -67,7 +62,7 @@ namespace CowboyCafe.Data
             set
             {
                 _mustard = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Mustard"));
+                NotifyOfPropertyChange("Mustard");
             }
         }
 
@@ -81,7 +76,7 @@ namespace CowboyCafe.Data
             set
             {
                 _pickle = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Pickle"));
+                NotifyOfPropertyChange("Pickle");
             }
         }
 
@@ -95,7 +90,7 @@ namespace CowboyCafe.Data
             set
             {
                 _cheese = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Cheese"));
+                NotifyOfPropertyChange("Cheese");
             }
         }
 
@@ -109,7 +104,7 @@ namespace CowboyCafe.Data
             set
             {
                 _bun = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Bun"));
+                NotifyOfPropertyChange("Bun");
             }
         }
 

@@ -17,7 +17,6 @@
             <Setter Property="HorizontalAlignment" Value="Left"/>
             <Setter Property="VerticalAlignment" Value="Top"/>
             <Setter Property="Margin" Value="10,5,10,5"/>
-            <Setter Property="Visibility" Value="Collapsed"/>
         </Style>
         <Style TargetType="TextBlock" x:Key="TextHeader">
             <Setter Property="Margin" Value="0,5,0,5"/>
@@ -27,79 +26,20 @@
         </Style>
     </UserControl.Resources>
  
-    <StackPanel>
+    <StackPanel Name="OptionPanel">
         <TextBlock Name="itemText" Style="{StaticResource TextHeader}" Text="{Binding ., UpdateSourceTrigger=Explicit}" />
         
         <UniformGrid Name="sizePanel" Visibility="Collapsed" Rows="1">
-            <Button Tag="SizeSmall" Click="SetSize">Small</Button>
-            <Button Tag="SizeMedium" Click="SetSize">Medium</Button>
-            <Button Tag="SizeLarge" Click="SetSize">Large</Button>
+            <Button Click="SetSize">Small</Button>
+            <Button Click="SetSize">Medium</Button>
+            <Button Click="SetSize">Large</Button>
         </UniformGrid>
         <UniformGrid Name="sodaPanel" Visibility="Collapsed" Rows="1">
-            <Button Tag="CreamSoda" Click="SetSoda">Cream Soda</Button>
-            <Button Tag="OrangeSoda" Click="SetSoda">Orange Soda</Button>
-            <Button Tag="Sarsparilla" Click="SetSoda">Sarsparilla</Button>
-            <Button Tag="BirchBeer" Click="SetSoda">Birch Beer</Button>
-            <Button Tag="RootBeer" Click="SetSoda">Root Beer</Button>
+            <Button Click="SetSoda">Cream Soda</Button>
+            <Button Click="SetSoda">Orange Soda</Button>
+            <Button Click="SetSoda">Sarsparilla</Button>
+            <Button Click="SetSoda">Birch Beer</Button>
+            <Button Click="SetSoda">Root Beer</Button>
         </UniformGrid>
-
-        <!-- Add Checkboxes for Each Property / I should make this dynamic -->
-        <Viewbox Name="iceCheck">
-                <CheckBox IsChecked="{Binding Path=Ice}">Ice</CheckBox>
-        </Viewbox>
-        <Viewbox Name="roomForCreamCheck">
-                <CheckBox IsChecked="{Binding Path=RoomForCream}">Room for Cream</CheckBox>
-        </Viewbox>
-        <Viewbox Name="decafCheck">
-                <CheckBox IsChecked="{Binding Path=Decaf}">Decaf</CheckBox>
-        </Viewbox>
-        <Viewbox Name="sweetCheck">
-                <CheckBox IsChecked="{Binding Path=Sweet}">Sweet</CheckBox>
-        </Viewbox>
-        <Viewbox Name="lemonCheck">
-            <CheckBox IsChecked="{Binding Path=Lemon}">Lemon</CheckBox>
-        </Viewbox>
-        <Viewbox Name="breadCheck">
-                <CheckBox IsChecked="{Binding Path=Bread}">Bread</CheckBox>
-        </Viewbox>
-        <Viewbox Name="pickleCheck">
-                <CheckBox IsChecked="{Binding Path=Pickle}">Pickle</CheckBox>
-        </Viewbox>
-        <Viewbox Name="cheeseCheck">
-                <CheckBox IsChecked="{Binding Path=Cheese}">Cheese</CheckBox>
-        </Viewbox>
-        <Viewbox Name="sourCreamCheck">
-            <CheckBox IsChecked="{Binding Path=SourCream}">Sour Cream</CheckBox>
-        </Viewbox>
-        <Viewbox Name="greenOnionsCheck">
-                <CheckBox IsChecked="{Binding Path=GreenOnions}">Green Onions</CheckBox>
-        </Viewbox>
-        <Viewbox Name="tortillaStripsCheck">
-                <CheckBox IsChecked="{Binding Path=TortillaStrips}">Tortilla Strips</CheckBox>
-        </Viewbox>
-        <Viewbox Name="ketchupCheck">
-                <CheckBox IsChecked="{Binding Path=Ketchup}">Ketchup</CheckBox>
-        </Viewbox>
-        <Viewbox Name="mustardCheck">
-                <CheckBox IsChecked="{Binding Path=Mustard}">Mustard</CheckBox>
-        </Viewbox>
-        <Viewbox Name="tomatoCheck">
-                <CheckBox IsChecked="{Binding Path=Tomato}">Tomato</CheckBox>
-        </Viewbox>
-        <Viewbox Name="lettuceCheck">
-                <CheckBox IsChecked="{Binding Path=Lettuce}">Lettuce</CheckBox>
-        </Viewbox>
-        <Viewbox Name="mayoCheck">
-                <CheckBox IsChecked="{Binding Path=Mayo}">Mayo</CheckBox>
-        </Viewbox>
-        <Viewbox Name="bunCheck">
-                <CheckBox IsChecked="{Binding Path=Bun}">Bun</CheckBox>
-        </Viewbox>
-        <Viewbox Name="baconCheck">
-                <CheckBox IsChecked="{Binding Path=Bacon}">Bacon</CheckBox>
-        </Viewbox>
-        <Viewbox Name="eggCheck">
-                <CheckBox IsChecked="{Binding Path=Egg}">Egg</CheckBox>
-        </Viewbox>
     </StackPanel>
 </UserControl>

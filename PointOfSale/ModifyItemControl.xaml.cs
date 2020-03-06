@@ -11,6 +11,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using CowboyCafe.Data;
+using System.Text.RegularExpressions;
+using System.Reflection;
+
 
 namespace CowboyCafe.PointOfSale
 {
@@ -26,28 +29,29 @@ namespace CowboyCafe.PointOfSale
             var type = item.GetType();
             InitializeComponent();
 
-            // Check if a property exist and, if so, show it
+            PropertyInfo[] myPropertyInfo = type.GetProperties();
+            for (int i = 0; i < myPropertyInfo.Length; i++)
+            {
+                if(myPropertyInfo[i].PropertyType == typeof(bool))
+                {
+                    Viewbox holdCheck = new Viewbox();
+                    CheckBox checkBox = new CheckBox();
+                    checkBox.Content = Regex.Replace(myPropertyInfo[i].Name, "([a-z])([A-Z])", "$1 $2");
+
+                    Binding binding = new Binding();
+                    binding.Source = DataContext;
+                    binding.Path = new PropertyPath(myPropertyInfo[i].Name);
+                    binding.Mode = BindingMode.TwoWay;
+                    checkBox.SetBinding(CheckBox.IsCheckedProperty, binding);
+
+                    holdCheck.Child = checkBox;
+
+                    OptionPanel.Children.Add(holdCheck);
+                }
+            }
+
             if (type.GetProperty("Size") != null) sizePanel.Visibility = Visibility.Visible;
             if (type.GetProperty("Flavor") != null) sodaPanel.Visibility = Visibility.Visible;
-            if (type.GetProperty("Ice") != null) iceCheck.Visibility = Visibility.Visible;
-            if (type.GetProperty("RoomForCream") != null) roomForCreamCheck.Visibility = Visibility.Visible;
-            if (type.GetProperty("Decaf") != null) decafCheck.Visibility = Visibility.Visible;
-            if (type.GetProperty("Sweet") != null) sweetCheck.Visibility = Visibility.Visible;
-            if (type.GetProperty("Lemon") != null) lemonCheck.Visibility = Visibility.Visible;
-            if (type.GetProperty("Bread") != null) breadCheck.Visibility = Visibility.Visible;
-            if (type.GetProperty("Pickle") != null) pickleCheck.Visibility = Visibility.Visible;
-            if (type.GetProperty("Cheese") != null) cheeseCheck.Visibility = Visibility.Visible;
-            if (type.GetProperty("SourCream") != null) sourCreamCheck.Visibility = Visibility.Visible;
-            if (type.GetProperty("GreenOnions") != null) greenOnionsCheck.Visibility = Visibility.Visible;
-            if (type.GetProperty("TortillaStrips") != null) tortillaStripsCheck.Visibility = Visibility.Visible;
-            if (type.GetProperty("Ketchup") != null) ketchupCheck.Visibility = Visibility.Visible;
-            if (type.GetProperty("Mustard") != null) mustardCheck.Visibility = Visibility.Visible;
-            if (type.GetProperty("Tomato") != null) tomatoCheck.Visibility = Visibility.Visible;
-            if (type.GetProperty("Lettuce") != null) lettuceCheck.Visibility = Visibility.Visible;
-            if (type.GetProperty("Mayo") != null) mayoCheck.Visibility = Visibility.Visible;
-            if (type.GetProperty("Bun") != null) bunCheck.Visibility = Visibility.Visible;
-            if (type.GetProperty("Bacon") != null) baconCheck.Visibility = Visibility.Visible;
-            if (type.GetProperty("Egg") != null) eggCheck.Visibility = Visibility.Visible;
         }
 
         /// <summary>
@@ -62,15 +66,15 @@ namespace CowboyCafe.PointOfSale
 
             if(sender is Button)
             {
-                switch (((Button)sender).Tag)
+                switch (((Button)sender).Content)
                 {
-                    case "SizeSmall":
+                    case "Small":
                         sizeProp.SetValue(DataContext, CowboyCafe.Data.Size.Small);
                         break;
-                    case "SizeMedium":
+                    case "Medium":
                         sizeProp.SetValue(DataContext, CowboyCafe.Data.Size.Medium);
                         break;
-                    case "SizeLarge":
+                    case "Large":
                         sizeProp.SetValue(DataContext, CowboyCafe.Data.Size.Large);
                         break;
                 }
@@ -89,21 +93,21 @@ namespace CowboyCafe.PointOfSale
 
             if(sender is Button)
             {
-                switch (((Button)sender).Tag)
+                switch (((Button)sender).Content)
                 {
-                    case "CreamSoda":
+                    case "Cream Soda":
                         sodaProp.SetValue(DataContext, SodaFlavor.CreamSoda);
                         break;
-                    case "OrangeSoda":
+                    case "Orange Soda":
                         sodaProp.SetValue(DataContext, SodaFlavor.OrangeSoda);
                         break;
                     case "Sarsparilla":
                         sodaProp.SetValue(DataContext, SodaFlavor.Sarsparilla);
                         break;
-                    case "BirchBeer":
+                    case "Birch Beer":
                         sodaProp.SetValue(DataContext, SodaFlavor.BirchBeer);
                         break;
-                    case "RootBeer":
+                    case "Root Beer":
                         sodaProp.SetValue(DataContext, SodaFlavor.RootBeer);
                         break;
                 }

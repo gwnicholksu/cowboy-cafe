@@ -26,15 +26,33 @@ namespace CowboyCafe.Data
         /// </summary>
         public abstract double Price { get; }
 
+        public Size _size = Size.Small;
         /// <summary>
         /// The size of the drink
         /// </summary>
-        public abstract Size Size { get; set; }
+        public Size Size
+        {
+            get { return _size; }
+            set
+            {
+                _size = value;
+                NotifyOfPropertyChange("Size");
+            }
+        }
 
+        private bool _ice = true;
         /// <summary>
         /// Whether there should be ice in the drink
         /// </summary>
-        public abstract bool Ice { get; set; }
+        public bool Ice
+        {
+            get { return _ice; }
+            set
+            {
+                _ice = value;
+                NotifyOfPropertyChange("Ice");
+            }
+        }
 
         /// <summary>
         /// The special instructions for this drink
@@ -44,6 +62,20 @@ namespace CowboyCafe.Data
         /// <summary>
         /// Event to be activated whenever certain properties are changed
         /// </summary>
-        public abstract event PropertyChangedEventHandler PropertyChanged;
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        /// <summary>
+        /// Notify that a property has changed
+        /// </summary>
+        /// <param name="propertyName"></param>
+        protected void NotifyOfPropertyChange(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            if (propertyName == "Size")
+            {
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
+            }
+        }
     }
 }

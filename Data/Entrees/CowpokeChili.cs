@@ -13,13 +13,8 @@ namespace CowboyCafe.Data
     /// <summary>
     /// A class representing the Cowpoke Chili entree
     /// </summary>
-    public class CowpokeChili : Entree, INotifyPropertyChanged
+    public class CowpokeChili : Entree
     {
-        /// <summary>
-        /// Event to be activated whenever certain properties are changed
-        /// </summary>
-        public override event PropertyChangedEventHandler PropertyChanged;
-
         private bool _cheese = true;
         /// <summary>
         /// If the chili is topped with cheese
@@ -29,7 +24,7 @@ namespace CowboyCafe.Data
             get { return _cheese; }
             set {
                 _cheese = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Cheese"));
+                NotifyOfPropertyChange("Cheese");
             }
         }
 
@@ -42,7 +37,7 @@ namespace CowboyCafe.Data
             get { return _sourCream; }
             set {
                 _sourCream = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SourCream"));
+                NotifyOfPropertyChange("SourCream");
             }
         }
 
@@ -55,7 +50,7 @@ namespace CowboyCafe.Data
             get { return _greenOnions; }
             set {
                 _greenOnions = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("GreenOnions"));
+                NotifyOfPropertyChange("GreenOnions");
             }
         }
 
@@ -68,7 +63,7 @@ namespace CowboyCafe.Data
             get { return _tortillaStrips; }
             set {
                 _tortillaStrips = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("TortillaStrips"));
+                NotifyOfPropertyChange("TortillaStrips");
             }
         }
 

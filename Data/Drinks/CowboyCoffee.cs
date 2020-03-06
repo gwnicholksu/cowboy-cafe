@@ -14,13 +14,8 @@ namespace CowboyCafe.Data
     /// <summary>
     /// A class for the Cowboy Coffee drink
     /// </summary>
-    public class CowboyCoffee : Drink, INotifyPropertyChanged
+    public class CowboyCoffee : Drink
     {
-        /// <summary>
-        /// Event to be activated whenever certain properties are changed
-        /// </summary>
-        public override event PropertyChangedEventHandler PropertyChanged;
-
         /// <summary>
         /// The number of calories in the drink
         /// </summary>
@@ -66,8 +61,7 @@ namespace CowboyCafe.Data
             get { return _decaf; }
             set {
                 _decaf = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Decaf"));
-
+                NotifyOfPropertyChange("Decaf");
             }
         }
 
@@ -81,35 +75,7 @@ namespace CowboyCafe.Data
             set
             {
                 _roomForCream = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("RoomForCream"));
-            }
-        }
-
-        private bool _ice = false;
-        /// <summary>
-        /// Whether there should be ice in the drink
-        /// </summary>
-        public override bool Ice
-        {
-            get { return _ice; }
-            set
-            {
-                _ice = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ice"));
-            }
-        }
-
-        public Size _size = Size.Small;
-        /// <summary>
-        /// The size of the drink
-        /// </summary>
-        public override Size Size
-        {
-            get { return _size; }
-            set
-            {
-                _size = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
+                NotifyOfPropertyChange("RoomForCream");
             }
         }
 

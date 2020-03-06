@@ -14,13 +14,8 @@ namespace CowboyCafe.Data
     /// <summary>
     /// A class for Water
     /// </summary>
-    public class Water : Drink, INotifyPropertyChanged
+    public class Water : Drink
     {
-        /// <summary>
-        /// Event to be activated whenever certain properties are changed
-        /// </summary>
-        public override event PropertyChangedEventHandler PropertyChanged;
-
         /// <summary>
         /// The number of calories in the drink
         /// </summary>
@@ -43,21 +38,6 @@ namespace CowboyCafe.Data
             }
         }
 
-        private bool _ice = true;
-        /// <summary>
-        /// Whether there should be ice in the drink
-        /// </summary>
-        public override bool Ice
-        {
-            get { return _ice; }
-            set
-            {
-                _ice = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ice"));
-            }
-        }
-
-
         private bool _lemon;
         /// <summary>
         /// Whether there should be lemon
@@ -68,7 +48,7 @@ namespace CowboyCafe.Data
             set
             {
                 _lemon = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Lemon"));
+                NotifyOfPropertyChange("Lemon");
             }
         }
 
@@ -86,22 +66,6 @@ namespace CowboyCafe.Data
                 return returnList;
             }
         }
-
-        public Size _size = Size.Small;
-        /// <summary>
-        /// The size of the drink
-        /// </summary>
-        public override Size Size
-        {
-            get { return _size; }
-            set
-            {
-                _size = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
-            }
-        }
-
-
 
         /// <summary>
         /// Get a lice string representation of this drink

@@ -14,13 +14,8 @@ namespace CowboyCafe.Data
     /// <summary>
     /// A class for the Jerked Soda drink
     /// </summary>
-    public class JerkedSoda : Drink, INotifyPropertyChanged
+    public class JerkedSoda : Drink
     {
-        /// <summary>
-        /// Event to be activated whenever certain properties are changed
-        /// </summary>
-        public override event PropertyChangedEventHandler PropertyChanged;
-
         /// <summary>
         /// The number of calories in the drink
         /// </summary>
@@ -57,20 +52,6 @@ namespace CowboyCafe.Data
             }
         }
 
-        private bool _ice = true;
-        /// <summary>
-        /// Whether there should be ice in the drink
-        /// </summary>
-        public override bool Ice
-        {
-            get { return _ice; }
-            set
-            {
-                _ice = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ice"));
-            }
-        }
-
         private SodaFlavor _flavor = SodaFlavor.CreamSoda;
         /// <summary>
         /// What flavor the soda should be
@@ -81,25 +62,9 @@ namespace CowboyCafe.Data
             set
             {
                 _flavor = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Flavor"));
+                NotifyOfPropertyChange("Flavor");
             }
         }
-
-        public Size _size = Size.Small;
-        /// <summary>
-        /// The size of the drink
-        /// </summary>
-        public override Size Size
-        {
-            get { return _size; }
-            set
-            {
-                _size = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
-            }
-        }
-
-
 
         /// <summary>
         /// The special instructions for this drink

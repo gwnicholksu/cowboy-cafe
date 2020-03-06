@@ -60,7 +60,8 @@ namespace CowboyCafe.PointOfSale
                             if(possibleItem is IOrderItem item)
                             { 
                                 order.Add(item);
-                                orderControl.SwapScreen(new ModifyItemControl(item));
+                                if(!(item is RustlersRibs)) // Don't change view if certain item
+                                    orderControl.SwapScreen(new ModifyItemControl(item));
                             }
                         }
                     }

@@ -20,7 +20,7 @@ namespace CowboyCafe.Data
             set
             {
                 _size = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
+                NotifyOfPropertyChange("Size");
             }
         }
 
@@ -48,5 +48,19 @@ namespace CowboyCafe.Data
         /// Event to be activated whenever certain properties are changed
         /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
+
+        /// <summary>
+        /// Notify that a property has changed
+        /// </summary>
+        /// <param name="propertyName"></param>
+        private void NotifyOfPropertyChange(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            if(propertyName == "Size")
+            {
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
+            }
+        }
     }
 }

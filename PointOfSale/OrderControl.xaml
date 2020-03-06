@@ -19,20 +19,15 @@
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="70px"/>
+            <RowDefinition  Height="70px" />
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <Grid Grid.Column="0" Grid.Row="0">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-            <Button Grid.Column="0" Name="ItemSelectionButton" Click="ItemSelection">Item Selection</Button>
-            <Button Grid.Column="1" Name="CancelOrderButton" Click="CancelOrder">Cancel Order</Button>
-            <Button Grid.Column="2" Name="CompleteOrderButton" Click="CompleteOrder">Complete Order</Button>
-        </Grid>
+        <UniformGrid Grid.Row="0" Grid.Column="0" Rows="1">
+            <Button Name="ItemSelectionButton" Click="ItemSelection">Item Selection</Button>
+            <Button Name="CancelOrderButton" Click="CancelOrder">Cancel Order</Button>
+            <Button Name="CompleteOrderButton" Click="CompleteOrder">Complete Order</Button>
+        </UniformGrid>
 
         <Border Name="SelectHolder" BorderThickness="0" Grid.Column="0" Grid.Row="1" VerticalAlignment="Stretch" />
 

@@ -14,7 +14,7 @@
         </Style>
 
         <Style TargetType="TextBlock" x:Key="TextHeader">
-            <Setter Property="Margin" Value="0,5,0,5"/>
+            <Setter Property="Margin" Value="0,05,0,5"/>
             <Setter Property="FontSize" Value="16"/>
             <Setter Property="FontWeight" Value="Bold" />
             <Setter Property="TextAlignment" Value="Center" />
@@ -38,13 +38,13 @@
             <Button Click="OnItemAddButtonClicked" Tag="CowboyCafe.Data.CowpokeChili, CowboyCafe.Data">Cowpoke Chili</Button>
             <Button Click="OnItemAddButtonClicked" Tag="CowboyCafe.Data.RustlersRibs, CowboyCafe.Data">Rustler's Ribs</Button>
             <Button Click="OnItemAddButtonClicked" Tag="CowboyCafe.Data.PecosPulledPork, CowboyCafe.Data">Pecos Pulled Pork</Button>
-            <Button Click="OnItemAddButtonClicked" Tag="CowboyCafe.Data.Trailburger, CowboyCafe.Data">Trail Burger</Button>
+            <Button Click="OnItemAddButtonClicked" Tag="CowboyCafe.Data.TrailBurger, CowboyCafe.Data">Trail Burger</Button>
             <Button Click="OnItemAddButtonClicked" Tag="CowboyCafe.Data.DakotaDoubleBurger, CowboyCafe.Data">Dakota Double Burger</Button>
             <Button Click="OnItemAddButtonClicked" Tag="CowboyCafe.Data.TexasTripleBurger, CowboyCafe.Data">Texas Triple Burger</Button>
             <Button Click="OnItemAddButtonClicked" Tag="CowboyCafe.Data.AngryChicken, CowboyCafe.Data">Angry Chicken</Button>
         </StackPanel>
 
-        <StackPanel Grid.Column="1">
+        <StackPanel Grid.Column="2">
             <TextBlock Style="{StaticResource TextHeader}">Sides</TextBlock>
             <Button Click="OnItemAddButtonClicked" Tag="CowboyCafe.Data.ChiliCheeseFries, CowboyCafe.Data">Chili Cheese Fries</Button>
             <Button Click="OnItemAddButtonClicked" Tag="CowboyCafe.Data.CornDodgers, CowboyCafe.Data">Corn Dogers</Button>
@@ -52,7 +52,7 @@
             <Button Click="OnItemAddButtonClicked" Tag="CowboyCafe.Data.BakedBeans, CowboyCafe.Data">Baked Beans</Button>
         </StackPanel>
 
-        <StackPanel Grid.Column="2">
+        <StackPanel Grid.Column="1">
             <TextBlock Style="{StaticResource TextHeader}">Drinks</TextBlock>
             <Button Click="OnItemAddButtonClicked" Tag="CowboyCafe.Data.JerkedSoda, CowboyCafe.Data">Jerked Soda</Button>
             <Button Click="OnItemAddButtonClicked" Tag="CowboyCafe.Data.TexasTea, CowboyCafe.Data">Texas Tea</Button>

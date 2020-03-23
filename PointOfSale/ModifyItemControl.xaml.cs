@@ -13,6 +13,7 @@ using System.Windows.Shapes;
 using CowboyCafe.Data;
 using System.Text.RegularExpressions;
 using System.Reflection;
+using CowboyCafe.ExtensionMethods;
 
 
 namespace CowboyCafe.PointOfSale
@@ -22,6 +23,8 @@ namespace CowboyCafe.PointOfSale
     /// </summary>
     public partial class ModifyItemControl : UserControl
     {
+        OrderControl parent;
+
         public ModifyItemControl(IOrderItem item)
         {
             DataContext = item;
@@ -52,6 +55,14 @@ namespace CowboyCafe.PointOfSale
 
             if (type.GetProperty("Size") != null) sizePanel.Visibility = Visibility.Visible;
             if (type.GetProperty("Flavor") != null) sodaPanel.Visibility = Visibility.Visible;
+        }
+
+        /// <summary>
+        /// Method to run when the control is loaded
+        /// </summary>
+        public void OnLoad(object sender, RoutedEventArgs e)
+        {
+            parent = this.FindAncestor<OrderControl>();
         }
 
         /// <summary>
@@ -111,6 +122,20 @@ namespace CowboyCafe.PointOfSale
                         sodaProp.SetValue(DataContext, SodaFlavor.RootBeer);
                         break;
                 }
+            }
+        }
+
+        /// <summary>
+        /// Handle a button to remove this item from the order
+        /// </summary>
+        /// <param name="sender">The sending button</param>
+        /// <param name="e">Event args</param>
+        private void OnRemoveItem(object sender, RoutedEventArgs e)
+        {
+            if(parent.DataContext is Order order)
+            {
+                order.Remove(DataContext as IOrderItem);
+                parent.SwapScreen(new MenuItemSelectionControl());
             }
         }
     }

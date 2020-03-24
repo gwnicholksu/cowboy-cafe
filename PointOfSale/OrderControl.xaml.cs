@@ -39,6 +39,20 @@ namespace CowboyCafe.PointOfSale
         }
 
         /// <summary>
+        /// Remove and item from the order and stop editing it if we are
+        /// </summary>
+        /// <param name="item">Item to remove</param>
+        public void RemoveAndStopEditing(IOrderItem item)
+        {
+            if (SelectHolder.Child is ModifyItemControl modView)
+                if (modView.DataContext is IOrderItem editItem)
+                    if (editItem == item)
+                        SwapScreen(new MenuItemSelectionControl());
+
+            (DataContext as Order).Remove(item);
+        }
+
+        /// <summary>
         /// Method to cancel an order
         /// </summary>
         /// <param name="sender"></param>

@@ -31,7 +31,9 @@
 
         <Border Name="SelectHolder" BorderThickness="0" Grid.Column="0" Grid.Row="1" VerticalAlignment="Stretch" />
 
-        <local:OrderSummaryControl Grid.Column="1" VerticalContentAlignment="Stretch" Grid.RowSpan="2"></local:OrderSummaryControl>
+        <ContentControl Grid.Column="1" Grid.Row="0" Content="{StaticResource RedCowboyHat}"/>
+
+        <local:OrderSummaryControl Grid.Column="1" Grid.Row="1" VerticalContentAlignment="Stretch"></local:OrderSummaryControl>
 
     </Grid>
 </UserControl>

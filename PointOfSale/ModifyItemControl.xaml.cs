@@ -132,11 +132,7 @@ namespace CowboyCafe.PointOfSale
         /// <param name="e">Event args</param>
         private void OnRemoveItem(object sender, RoutedEventArgs e)
         {
-            if(parent.DataContext is Order order)
-            {
-                order.Remove(DataContext as IOrderItem);
-                parent.SwapScreen(new MenuItemSelectionControl());
-            }
+            parent.RemoveAndStopEditing(DataContext as IOrderItem);
         }
     }
 }

@@ -53,5 +53,18 @@ namespace CowboyCafe.PointOfSale
                     orderControl.SwapScreen(new ModifyItemControl(item));
             }
         }
+
+        /// <summary>
+        /// Remove the item from order
+        /// </summary>
+        /// <param name="sender">Sending button</param>
+        /// <param name="e">Routed event args</param>
+        private void OnRemoveItem(object sender, RoutedEventArgs e)
+        {
+            if((sender as Button).DataContext is IOrderItem item)
+            {
+                orderControl.RemoveAndStopEditing(item);
+            }
+        }
     }
 }

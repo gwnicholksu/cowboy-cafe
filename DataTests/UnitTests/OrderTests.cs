@@ -4,6 +4,7 @@ using System.Text;
 using System.Linq;
 using CowboyCafe.Data;
 using Xunit;
+using System.ComponentModel;
 
 namespace CowboyCafe.DataTests
 {
@@ -12,6 +13,8 @@ namespace CowboyCafe.DataTests
         public double Price { get; set; }
 
         public List<string> SpecialInstructions { get; set; }
+
+        public event PropertyChangedEventHandler PropertyChanged;
     }
 
     public class OrderTests

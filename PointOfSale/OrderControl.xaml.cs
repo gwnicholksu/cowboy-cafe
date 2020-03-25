@@ -35,7 +35,7 @@ namespace CowboyCafe.PointOfSale
         /// <param name="elem">The element to swap to</param>
         public void SwapScreen(UIElement elem)
         {
-            SelectHolder.Child = elem;
+            SelectHolder.Content = elem;
         }
 
         /// <summary>
@@ -44,7 +44,7 @@ namespace CowboyCafe.PointOfSale
         /// <param name="item">Item to remove</param>
         public void RemoveAndStopEditing(IOrderItem item)
         {
-            if (SelectHolder.Child is ModifyItemControl modView)
+            if (SelectHolder.Content is ModifyItemControl modView)
                 if (modView.DataContext is IOrderItem editItem)
                     if (editItem == item)
                         SwapScreen(new MenuItemSelectionControl());

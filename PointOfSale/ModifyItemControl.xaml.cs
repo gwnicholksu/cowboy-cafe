@@ -32,6 +32,7 @@ namespace CowboyCafe.PointOfSale
             var type = item.GetType();
             InitializeComponent();
 
+            // Loop through all the properties and add the wanted checkboxes
             PropertyInfo[] myPropertyInfo = type.GetProperties();
             for (int i = 0; i < myPropertyInfo.Length; i++)
             {
@@ -39,7 +40,7 @@ namespace CowboyCafe.PointOfSale
                 {
                     Viewbox holdCheck = new Viewbox();
                     CheckBox checkBox = new CheckBox();
-                    checkBox.Content = Regex.Replace(myPropertyInfo[i].Name, "([a-z])([A-Z])", "$1 $2");
+                    checkBox.Content = Regex.Replace(myPropertyInfo[i].Name, "([a-z])([A-Z])", "$1 $2"); // Make a nice name
 
                     Binding binding = new Binding();
                     binding.Source = DataContext;

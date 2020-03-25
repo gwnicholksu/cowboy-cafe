@@ -29,7 +29,7 @@
             <Button Name="CompleteOrderButton" Click="CompleteOrder">Complete Order</Button>
         </UniformGrid>
 
-        <Border Name="SelectHolder" BorderThickness="0" Grid.Column="0" Grid.Row="1" VerticalAlignment="Stretch" />
+        <ContentControl Name="SelectHolder" BorderThickness="0" Grid.Column="0" Grid.Row="1" VerticalAlignment="Stretch" />
 
         <ContentControl Grid.Column="1" Grid.Row="0" Content="{StaticResource RedCowboyHat}"/>
 

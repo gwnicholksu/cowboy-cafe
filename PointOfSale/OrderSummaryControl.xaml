@@ -47,7 +47,21 @@
                             <TextBlock FontSize="16" Grid.Row="0" Grid.Column="0" Text="{Binding}"/>
                             <TextBlock FontSize="16" Grid.Row="0" Grid.Column="1" Text="{Binding Path=Price, StringFormat=c}"/>
                             <Button Grid.Row="1" Grid.Column="1" FontSize="16" Background="Red" Click="OnRemoveItem">X</Button>
-                            <ListView FontSize="16" Grid.Row="1" Grid.Column="0" Margin="20,0,0,0" ItemsSource="{Binding Path=SpecialInstructions}" BorderThickness="0"/>
+                            <ListBox FontSize="16" Grid.Row="1" Grid.Column="0" Margin="20,0,0,0" ItemsSource="{Binding Path=SpecialInstructions}" BorderThickness="0" Background="Transparent" >
+                                <ListBox.ItemContainerStyle>
+                                    <Style TargetType="ListBoxItem">
+                                        <!-- This mess is to get rid of highlights and let the parent ListBox be selected by clicking on these elements -->
+                                        <Setter Property="Template">
+                                            <Setter.Value>
+                                                <ControlTemplate>
+                                                    <ContentControl Content="{Binding Content, RelativeSource={RelativeSource TemplatedParent}}" />
+                                                </ControlTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                        <Setter Property="IsEnabled" Value="False"/>
+                                    </Style>
+                                </ListBox.ItemContainerStyle>
+                            </ListBox>
                         </Grid>
                     </DataTemplate>
                 </ListBox.ItemTemplate>

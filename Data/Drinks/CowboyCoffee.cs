@@ -17,6 +17,14 @@ namespace CowboyCafe.Data
     public class CowboyCoffee : Drink
     {
         /// <summary>
+        /// Set Ice to false for this one only
+        /// </summary>
+        public CowboyCoffee()
+        {
+            Ice = false;
+        }
+
+        /// <summary>
         /// The number of calories in the drink
         /// </summary>
         public override uint Calories

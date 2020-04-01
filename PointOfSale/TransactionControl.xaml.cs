@@ -23,15 +23,10 @@ namespace CowboyCafe.PointOfSale
     {
         // The window that is the parent
         MainWindow parent;
-        
-        /// <summary>
-        /// Get the total cost of the transaction
-        /// </summary>
-        public double Total
-        {
-            get { return Math.Round(((DataContext as Order).Subtotal * 1.16), 2); }
-        }
 
+        // The data for this transaction
+        public Transaction Transaction { get; private set; }
+        
         /// <summary>
         /// Initialize the Transaction Control
         /// </summary>
@@ -40,7 +35,8 @@ namespace CowboyCafe.PointOfSale
         {
             InitializeComponent();
 
-            DataContext = order;
+            Transaction = new Transaction(order);
+            DataContext = Transaction;
         }
 
         /// <summary>
@@ -72,10 +68,12 @@ namespace CowboyCafe.PointOfSale
         {
             CardTerminal cardTerminal = new CardTerminal();
 
-            ResultCode code = cardTerminal.ProcessTransaction(Total);
+            ResultCode code = cardTerminal.ProcessTransaction(Transaction.Total);
             switch (code)
             {
                 case ResultCode.Success:
+                    Transaction.PaymentMethod = PaymentMethod.Credit;
+                    Transaction.AmountPaid = Transaction.Total;
                     MessageBox.Text = "";
                     FinishTransaction();
                     break;
@@ -100,10 +98,10 @@ namespace CowboyCafe.PointOfSale
         private void FinishTransaction()
         {
             // Print receipt
+            ReceiptPrinter receiptPrinter = new ReceiptPrinter();
+            receiptPrinter.Print(Transaction.ToString());
 
             parent.SwapScreen(new OrderControl());
         }
-
-
     }
 }

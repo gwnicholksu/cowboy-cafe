@@ -56,7 +56,7 @@
         <DockPanel Grid.Column="1" Grid.Row="1" VerticalAlignment="Stretch">
             <TextBlock DockPanel.Dock="Top">
                 <Run Text="Order "/>
-                <Run Text="{Binding Path=OrderNumber, Mode=OneWay}"/>
+                <Run Text="{Binding Path=Order.OrderNumber, Mode=OneWay}"/>
             </TextBlock>
 
             <Grid DockPanel.Dock="Bottom">
@@ -67,16 +67,19 @@
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                     <RowDefinition/>
+                    <RowDefinition/>
                 </Grid.RowDefinitions>
                 <TextBlock Grid.Row="0" Grid.Column="0">Subtotal</TextBlock>
-                <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Path=Subtotal, StringFormat=c}"/>
-                <TextBlock Grid.Row="1" Grid.Column="0" Style="{StaticResource important}">Total (16% Tax)</TextBlock>
-                <TextBlock Grid.Row="1" Grid.Column="1" Style="{StaticResource important}" Text="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:TransactionControl}}, Path=Total, StringFormat=c}"/>
+                <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Path=Order.Subtotal, StringFormat=c}"/>
+                <TextBlock Grid.Row="1" Grid.Column="0">Added Tax</TextBlock>
+                <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Path=AddedTax, StringFormat=c}"/>
+                <TextBlock Grid.Row="2" Grid.Column="0" Style="{StaticResource important}">Total</TextBlock>
+                <TextBlock Grid.Row="2" Grid.Column="1" Style="{StaticResource important}" Text="{Binding Path=Total, StringFormat=c}"/>
 
             </Grid>
 
             <Border BorderThickness="1" BorderBrush="Black">
-                <ListBox ItemsSource="{Binding Path=Items}" BorderThickness="0.5" VerticalContentAlignment="Stretch">
+                <ListBox ItemsSource="{Binding Path=Order.Items}" BorderThickness="0.5" VerticalContentAlignment="Stretch">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <Grid>

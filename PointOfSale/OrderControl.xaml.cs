@@ -11,6 +11,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using CowboyCafe.Data;
+using CowboyCafe.ExtensionMethods;
 
 namespace CowboyCafe.PointOfSale
 {
@@ -19,6 +20,9 @@ namespace CowboyCafe.PointOfSale
     /// </summary>
     public partial class OrderControl : UserControl
     {
+        // Parent MainWindow
+        private MainWindow parent;
+
         /// <summary>
         /// Initialize the OrderControl view
         /// </summary>
@@ -27,6 +31,16 @@ namespace CowboyCafe.PointOfSale
             DataContext = new Order();
             InitializeComponent();
             SwapScreen(new MenuItemSelectionControl());
+        }
+
+        /// <summary>
+        /// Find the main window that this is a part of
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public void OnLoad(object sender, RoutedEventArgs e)
+        {
+            parent = this.FindAncestor<MainWindow>();
         }
 
         /// <summary>
@@ -70,8 +84,7 @@ namespace CowboyCafe.PointOfSale
         /// <param name="e"></param>
         private void CompleteOrder(object sender, RoutedEventArgs e)
         {
-            DataContext = new Order();
-            SwapScreen(new MenuItemSelectionControl());
+            parent.SwapScreen(new TransactionControl(DataContext as Order));
         }
 
         /// <summary>

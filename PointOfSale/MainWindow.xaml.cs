@@ -24,5 +24,14 @@ namespace CowboyCafe.PointOfSale
         {
             InitializeComponent();
         }
+
+        /// <summary>
+        /// Swap the scren to a specified element
+        /// </summary>
+        /// <param name="elem">The element to swap to</param>
+        public void SwapScreen(UIElement elem)
+        {
+            ContentHolder.Content = elem;
+        }
     }
 }

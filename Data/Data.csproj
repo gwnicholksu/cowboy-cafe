@@ -1,9 +1,15 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
     <AssemblyName>CowboyCafe.Data</AssemblyName>
     <RootNamespace>CowboyCafe.Data</RootNamespace>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="CashRegister">
+      <HintPath>C:\Users\Grant Nichol\Source\Repos\mvvm-data-binding-gwnicholksu\MVVMDataBinding\CashRegister.dll</HintPath>
+    </Reference>
+  </ItemGroup>
 
 </Project>

@@ -19,7 +19,7 @@ namespace CowboyCafe.Data
         /// <summary>
         /// The Model class for this ModelView
         /// </summary>
-        static CashDrawer drawer = new CashDrawer(); // Static so it stays the same the whole time
+        CashDrawer drawer = new CashDrawer(); // Static so it stays the same the whole time
 
         /// <summary>
         /// The total current value of the drawer
@@ -138,12 +138,30 @@ namespace CowboyCafe.Data
             {
                 if (drawer.Dollars == value || value < 0) return;
                 int quantity = value - drawer.Dollars;
-                if (quantity > 0) drawer.AddBill(Bills.One, quantity);
-                else drawer.RemoveBill(Bills.One, -quantity);
+                if (quantity > 0) drawer.AddCoin(Coins.Dollar, quantity);
+                else drawer.RemoveCoin(Coins.Dollar, -quantity);
 
                 InvokePropertyChanged("Dollars");
             }
-        } 
+        }
+
+        /// <summary>
+        /// Gets or sets the number of Ones in the cash register
+        /// </summary>
+        public int Ones
+        {
+            get => drawer.Ones;
+
+            set
+            {
+                if (drawer.Ones == value || value < 0) return;
+                int quantity = value - drawer.Ones;
+                if (quantity > 0) drawer.AddBill(Bills.One, quantity);
+                else drawer.RemoveBill(Bills.One, -quantity);
+
+                InvokePropertyChanged("Ones");
+            }
+        }
         
         /// <summary>
         /// Gets or sets the number of Twos in the cash register

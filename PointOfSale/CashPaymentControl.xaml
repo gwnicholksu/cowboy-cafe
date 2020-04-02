@@ -1,0 +1,41 @@
+﻿<UserControl x:Class="CowboyCafe.PointOfSale.CashPaymentControl"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CowboyCafe.PointOfSale"
+        mc:Ignorable="d"
+        Loaded="OnLoad">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="11*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
+        <WrapPanel Grid.Row="0">
+            <local:CoinControl QuantityInDrawer="{Binding Path=Register.Pennies}" QuantityInHand="{Binding Path=Hand.Pennies}" Denomination="Penny" />
+            <local:CoinControl QuantityInDrawer="{Binding Path=Register.Nickels}" QuantityInHand="{Binding Path=Hand.Nickels}" Denomination="Nickel" />
+            <local:CoinControl QuantityInDrawer="{Binding Path=Register.Dimes}" QuantityInHand="{Binding Path=Hand.Dimes}" Denomination="Dime" />
+            <local:CoinControl QuantityInDrawer="{Binding Path=Register.Quarters}" QuantityInHand="{Binding Path=Hand.Quarters}" Denomination="Quarter" />
+            <local:CoinControl QuantityInDrawer="{Binding Path=Register.HalfDollars}" QuantityInHand="{Binding Path=Hand.HalfDollars}" Denomination="HalfDollar" />
+            <local:CoinControl QuantityInDrawer="{Binding Path=Register.Dollars}" QuantityInHand="{Binding Path=Hand.Dollars}" Denomination="Dollar" />
+            <local:BillControl QuantityInDrawer="{Binding Path=Register.Ones}" QuantityInHand="{Binding Path=Hand.Ones}" Denomination="One" />
+            <local:BillControl QuantityInDrawer="{Binding Path=Register.Twos}" QuantityInHand="{Binding Path=Hand.Twos}" Denomination="Two" />
+            <local:BillControl QuantityInDrawer="{Binding Path=Register.Fives}" QuantityInHand="{Binding Path=Hand.Fives}" Denomination="Five" />
+            <local:BillControl QuantityInDrawer="{Binding Path=Register.Tens}" QuantityInHand="{Binding Path=Hand.Tens}" Denomination="Ten" />
+            <local:BillControl QuantityInDrawer="{Binding Path=Register.Twenties}" QuantityInHand="{Binding Path=Hand.Twenties}" Denomination="Twenty" />
+            <local:BillControl QuantityInDrawer="{Binding Path=Register.Fifties}" QuantityInHand="{Binding Path=Hand.Fifties}" Denomination="Fifty" />
+            <local:BillControl QuantityInDrawer="{Binding Path=Register.Hundreds}" QuantityInHand="{Binding Path=Hand.Hundreds}" Denomination="Hundred" />
+        </WrapPanel>
+
+        <TextBlock Grid.Row="1" Margin="10,10,10,10" TextAlignment="Right" FontSize="20" FontWeight="Bold">
+            <Run Text="Total Paid: "/>
+            <Run Text="{Binding Path=Hand.TotalValue, Mode=OneWay, StringFormat=C}"/>
+        </TextBlock>
+
+        <UniformGrid Grid.Row="2" Columns="2" >
+            <Button Click="OnCalculateChange" Name="ChangeButton">Calculate Change</Button>
+            <Button Click="OnDone" IsEnabled="False" Name="DoneButton">Done</Button>
+        </UniformGrid>
+    </Grid>
+</UserControl>

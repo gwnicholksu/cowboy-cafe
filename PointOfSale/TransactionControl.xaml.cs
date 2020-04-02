@@ -93,9 +93,19 @@ namespace CowboyCafe.PointOfSale
         }
 
         /// <summary>
+        /// Start the Cash Payment control if we are paying with cash
+        /// </summary>
+        /// <param name="sender">The sending object</param>
+        /// <param name="e">Routed Event Args</param>
+        private void OnPayWithCash(object sender, RoutedEventArgs e)
+        {
+            SelectHolder.Content = new CashPaymentControl(Transaction.Total);
+        }
+
+        /// <summary>
         /// Actually print receipt and finish
         /// </summary>
-        private void FinishTransaction()
+        public void FinishTransaction()
         {
             // Print receipt
             ReceiptPrinter receiptPrinter = new ReceiptPrinter();

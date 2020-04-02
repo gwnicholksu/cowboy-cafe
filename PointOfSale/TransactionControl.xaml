@@ -38,6 +38,7 @@
         <UniformGrid Grid.Row="0" Grid.Column="0" Rows="1">
             <Button Click="OnCancelTransaction">Cancel Transaction</Button>
             <Button Click="OnPayWithCredit">Pay With Credit</Button>
+            <Button Click="OnPayWithCash">Pay With Cash</Button>
         </UniformGrid>
 
         <Grid Grid.Column="0" Grid.Row="1" VerticalAlignment="Stretch">
@@ -47,7 +48,9 @@
             </Grid.RowDefinitions>
             <ContentControl Name="SelectHolder" BorderThickness="0" Grid.Row="0" VerticalAlignment="Stretch" />
             <Border BorderThickness="2" Grid.Row="1">
-                <TextBlock Name="MessageBox" Margin="5,5,5,5"/>
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <TextBlock Name="MessageBox" Margin="5,5,5,5" />
+                </ScrollViewer>
             </Border>
         </Grid>
         

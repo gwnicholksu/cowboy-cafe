@@ -8,7 +8,7 @@ namespace CowboyCafe.Data
     /// <summary>
     /// Class representing the money payed by the customer
     /// </summary>
-    class MoneyHand : INotifyPropertyChanged
+    public class CashInHand : INotifyPropertyChanged
     {
         /// <summary>
         /// Property changed event handlers
@@ -149,6 +149,22 @@ namespace CowboyCafe.Data
                 else dollars = value;
 
                 InvokePropertyChanged("Dollars");
+            }
+        }
+
+        private int ones;
+        /// <summary>
+        /// Gets or sets the number of Ones in the cash register
+        /// </summary>
+        public int Ones
+        {
+            get => ones;
+            set
+            {
+                if (ones == value || value < 0) return;
+                else dollars = value;
+
+                InvokePropertyChanged("Ones");
             }
         }
 

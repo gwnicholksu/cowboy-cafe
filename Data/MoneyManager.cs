@@ -28,45 +28,37 @@ namespace CowboyCafe.Data
         {
             double changeToGive = Hand.TotalValue - total;
 
-            AddHandToRegister();
+            int[] registerValues = Register.Values;
+            int[] handValues = Hand.Values;
+
+            // Add Hand to register
+            for (int i = 0; i < registerValues.Length; i++)
+                registerValues[i] += handValues[i];
+
             StringBuilder output = new StringBuilder();
 
-            Register.Hundreds -= NumberToGive(Register.Hundreds, 100.00, output, ref changeToGive, new string[2] { "Hundred", "Hundreds" });
-            Register.Fifties -= NumberToGive(Register.Fifties, 50.00, output, ref changeToGive, new string[2] { "Fifty", "Fifties" });
-            Register.Twenties -= NumberToGive(Register.Twenties, 20.00, output, ref changeToGive, new string[2] { "Twenty", "Twenties" });
-            Register.Tens -= NumberToGive(Register.Tens, 10.00, output, ref changeToGive, new string[2] { "Ten", "Tens" });
-            Register.Fives -= NumberToGive(Register.Fives, 5.00, output, ref changeToGive, new string[2] { "Five", "Fives" });
-            Register.Twos -= NumberToGive(Register.Twos, 2.00, output, ref changeToGive, new string[2] { "Two", "Twos" });
-            Register.Dollars -= NumberToGive(Register.Dollars, 1.00, output, ref changeToGive, new string[2] { "Dollar Coin", "Dollar Coins" });
-            Register.Ones -= NumberToGive(Register.Ones, 1.00, output, ref changeToGive, new string[2] { "Ones", "Ones" });
-            Register.HalfDollars -= NumberToGive(Register.HalfDollars, 0.50, output, ref changeToGive, new string[2] { "Half-Dollar", "Half-Dollars" });
-            Register.Quarters -= NumberToGive(Register.Quarters, 0.25, output, ref changeToGive, new string[2] { "Quarter", "Quarters" });
-            Register.Dimes -= NumberToGive(Register.Dimes, 0.10, output, ref changeToGive, new string[2] { "Dime", "Dimes" });
-            Register.Nickels -= NumberToGive(Register.Nickels, 0.05, output, ref changeToGive, new string[2] { "Nickel", "Nickels" });
-            Register.Pennies -= NumberToGive(Register.Pennies, 0.01, output, ref changeToGive, new string[2] { "Penny", "Pennies" });
+            registerValues[0] -= NumberToGive(registerValues[0], 100.00, output, ref changeToGive, new string[2] { "Hundred", "Hundreds" });
+            registerValues[1] -= NumberToGive(registerValues[1], 50.00, output, ref changeToGive, new string[2] { "Fifty", "Fifties" });
+            registerValues[2] -= NumberToGive(registerValues[2], 20.00, output, ref changeToGive, new string[2] { "Twenty", "Twenties" });
+            registerValues[3] -= NumberToGive(registerValues[3], 10.00, output, ref changeToGive, new string[2] { "Ten", "Tens" });
+            registerValues[4] -= NumberToGive(registerValues[4], 5.00, output, ref changeToGive, new string[2] { "Five", "Fives" });
+            registerValues[5] -= NumberToGive(registerValues[5], 2.00, output, ref changeToGive, new string[2] { "Two", "Twos" });
+            registerValues[7] -= NumberToGive(registerValues[7], 1.00, output, ref changeToGive, new string[2] { "Dollar Coin", "Dollar Coins" });
+            registerValues[6] -= NumberToGive(registerValues[6], 1.00, output, ref changeToGive, new string[2] { "Ones", "Ones" });
+            registerValues[8] -= NumberToGive(registerValues[8], 0.50, output, ref changeToGive, new string[2] { "Half-Dollar", "Half-Dollars" });
+            registerValues[9] -= NumberToGive(registerValues[9], 0.25, output, ref changeToGive, new string[2] { "Quarter", "Quarters" });
+            registerValues[10] -= NumberToGive(registerValues[10], 0.10, output, ref changeToGive, new string[2] { "Dime", "Dimes" });
+            registerValues[11] -= NumberToGive(registerValues[11], 0.05, output, ref changeToGive, new string[2] { "Nickel", "Nickels" });
+
+            if (changeToGive % 0.01 > 0.005) changeToGive += 0.01; // Double precision rounding error
+            registerValues[12] -= NumberToGive(registerValues[12], 0.01, output, ref changeToGive, new string[2] { "Penny", "Pennies" });
 
             if (changeToGive >= 0.01) throw new InvalidOperationException();
 
+            // Make the change official
+            Register.Values = registerValues;
+            Hand.Values = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
             return output.ToString();
-        }
-
-        /// <summary>
-        /// Add all the coins and bills back into the register
-        /// </summary>
-        private void AddHandToRegister()
-        {
-            Register.Pennies += Hand.Pennies;
-            Register.Nickels += Hand.Nickels;
-            Register.Dimes += Hand.Dimes;
-            Register.Quarters += Hand.Quarters;
-            Register.HalfDollars += Hand.HalfDollars;
-            Register.Dollars += Hand.Dollars;
-            Register.Twos += Hand.Twos;
-            Register.Fives += Hand.Fives;
-            Register.Tens += Hand.Tens;
-            Register.Twenties += Hand.Twenties;
-            Register.Fifties += Hand.Fifties;
-            Register.Hundreds += Hand.Hundreds;
         }
 
         /// <summary>

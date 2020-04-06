@@ -157,7 +157,7 @@ namespace CowboyCafe.Data
             string balance = (AmountPaid - Total).ToString("C");
             builder.Append(' ', PrintWidth - 15 - 8);
             builder.Append("Balance:"); // 8 char long
-            builder.Append(' ', 15 - tax.Length);
+            builder.Append(' ', 15 - balance.Length);
             builder.AppendLine(balance);
             builder.AppendLine();
 

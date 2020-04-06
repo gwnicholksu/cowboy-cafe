@@ -10,7 +10,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using CowboyCafe.ExtensionMethods;
+using CowboyCafe.Extension;
 using CowboyCafe.Data;
 using CashRegister;
 
@@ -99,6 +99,7 @@ namespace CowboyCafe.PointOfSale
         /// <param name="e">Routed Event Args</param>
         private void OnPayWithCash(object sender, RoutedEventArgs e)
         {
+            Transaction.PaymentMethod = PaymentMethod.Cash;
             SelectHolder.Content = new CashPaymentControl(Transaction.Total);
         }
 

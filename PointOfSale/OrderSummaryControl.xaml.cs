@@ -12,7 +12,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using CowboyCafe.Data;
 using System.ComponentModel;
-using CowboyCafe.ExtensionMethods;
+using CowboyCafe.Extension;
 
 namespace CowboyCafe.PointOfSale
 {

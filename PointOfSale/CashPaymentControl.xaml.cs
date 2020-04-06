@@ -10,7 +10,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using CowboyCafe.Data;
-using CowboyCafe.ExtensionMethods;
+using CowboyCafe.Extension;
 
 namespace CowboyCafe.PointOfSale
 {
@@ -66,9 +66,17 @@ namespace CowboyCafe.PointOfSale
             else
             {
                 parent.Transaction.AmountPaid = manager.Hand.TotalValue;
-                parent.MessageBox.Text = $"Change To Give:\n{manager.CalculateChange(total)}";
-                DoneButton.IsEnabled = true;
-                ChangeButton.IsEnabled = false;
+                try
+                {
+                    parent.MessageBox.Text = $"Change To Give:\n{manager.CalculateChange(total)}";
+                    DoneButton.IsEnabled = true;
+                    ChangeButton.IsEnabled = false;
+                }
+                catch (InvalidOperationException ex)
+                { // Unable to give change
+                    parent.MessageBox.Text = "Error: Unable to give change. Try paying a smaller amount";
+                }
+
             }
         }
 

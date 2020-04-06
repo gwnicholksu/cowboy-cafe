@@ -4,11 +4,13 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:CowboyCafe.PointOfSale"
+             xmlns:data="clr-namespace:CowboyCafe.Data;assembly=CowboyCafe.Data"
+             xmlns:ex="clr-namespace:CowboyCafe.Extension"
              mc:Ignorable="d"
              Loaded="OnLoad"
              d:DesignHeight="450" d:DesignWidth="800">
     <UserControl.Resources>
-        <Style TargetType="Button">
+        <Style TargetType="ex:ItemButton">
             <Setter Property="Height" Value="50px"/>
             <Setter Property="Margin" Value="10,5,10,5"/>
         </Style>
@@ -35,29 +37,29 @@
 
         <StackPanel Grid.Column="0">
             <TextBlock Style="{StaticResource TextHeader}">Entrees</TextBlock>
-            <Button Click="OnItemAddButtonClicked" Tag="CowboyCafe.Data.CowpokeChili, CowboyCafe.Data">Cowpoke Chili</Button>
-            <Button Click="OnItemAddButtonClicked" Tag="CowboyCafe.Data.RustlersRibs, CowboyCafe.Data">Rustler's Ribs</Button>
-            <Button Click="OnItemAddButtonClicked" Tag="CowboyCafe.Data.PecosPulledPork, CowboyCafe.Data">Pecos Pulled Pork</Button>
-            <Button Click="OnItemAddButtonClicked" Tag="CowboyCafe.Data.TrailBurger, CowboyCafe.Data">Trail Burger</Button>
-            <Button Click="OnItemAddButtonClicked" Tag="CowboyCafe.Data.DakotaDoubleBurger, CowboyCafe.Data">Dakota Double Burger</Button>
-            <Button Click="OnItemAddButtonClicked" Tag="CowboyCafe.Data.TexasTripleBurger, CowboyCafe.Data">Texas Triple Burger</Button>
-            <Button Click="OnItemAddButtonClicked" Tag="CowboyCafe.Data.AngryChicken, CowboyCafe.Data">Angry Chicken</Button>
+            <ex:ItemButton Click="OnItemAddButtonClicked" OrderItem="data:CowpokeChili">Cowpoke Chili</ex:ItemButton>
+            <ex:ItemButton Click="OnItemAddButtonClicked" OrderItem="data:RustlersRibs">Rustler's Ribs</ex:ItemButton>
+            <ex:ItemButton Click="OnItemAddButtonClicked" OrderItem="data:PecosPulledPork">Pecos Pulled Pork</ex:ItemButton>
+            <ex:ItemButton Click="OnItemAddButtonClicked" OrderItem="data:TrailBurger">Trail Burger</ex:ItemButton>
+            <ex:ItemButton Click="OnItemAddButtonClicked" OrderItem="data:DakotaDoubleBurger">Dakota Double Burger</ex:ItemButton>
+            <ex:ItemButton Click="OnItemAddButtonClicked" OrderItem="data:TexasTripleBurger">Texas Triple Burger</ex:ItemButton>
+            <ex:ItemButton Click="OnItemAddButtonClicked" OrderItem="data:AngryChicken">Angry Chicken</ex:ItemButton>
         </StackPanel>
 
         <StackPanel Grid.Column="2">
             <TextBlock Style="{StaticResource TextHeader}">Sides</TextBlock>
-            <Button Click="OnItemAddButtonClicked" Tag="CowboyCafe.Data.ChiliCheeseFries, CowboyCafe.Data">Chili Cheese Fries</Button>
-            <Button Click="OnItemAddButtonClicked" Tag="CowboyCafe.Data.CornDodgers, CowboyCafe.Data">Corn Dogers</Button>
-            <Button Click="OnItemAddButtonClicked" Tag="CowboyCafe.Data.PanDeCampo, CowboyCafe.Data">Pan de Campo</Button>
-            <Button Click="OnItemAddButtonClicked" Tag="CowboyCafe.Data.BakedBeans, CowboyCafe.Data">Baked Beans</Button>
+            <ex:ItemButton Click="OnItemAddButtonClicked" OrderItem="data:ChiliCheeseFries">Chili Cheese Fries</ex:ItemButton>
+            <ex:ItemButton Click="OnItemAddButtonClicked" OrderItem="data:CornDodgers">Corn Dodgers</ex:ItemButton>
+            <ex:ItemButton Click="OnItemAddButtonClicked" OrderItem="data:PanDeCampo">Pan de Campo</ex:ItemButton>
+            <ex:ItemButton Click="OnItemAddButtonClicked" OrderItem="data:BakedBeans">Baked Beans</ex:ItemButton>
         </StackPanel>
 
         <StackPanel Grid.Column="1">
             <TextBlock Style="{StaticResource TextHeader}">Drinks</TextBlock>
-            <Button Click="OnItemAddButtonClicked" Tag="CowboyCafe.Data.JerkedSoda, CowboyCafe.Data">Jerked Soda</Button>
-            <Button Click="OnItemAddButtonClicked" Tag="CowboyCafe.Data.TexasTea, CowboyCafe.Data">Texas Tea</Button>
-            <Button Click="OnItemAddButtonClicked" Tag="CowboyCafe.Data.CowboyCoffee, CowboyCafe.Data">Cowboy Coffee</Button>
-            <Button Click="OnItemAddButtonClicked" Tag="CowboyCafe.Data.Water, CowboyCafe.Data">Water</Button>
+            <ex:ItemButton Click="OnItemAddButtonClicked" OrderItem="data:JerkedSoda">Jerked Soda</ex:ItemButton>
+            <ex:ItemButton Click="OnItemAddButtonClicked" OrderItem="data:TexasTea">Texas Tea</ex:ItemButton>
+            <ex:ItemButton Click="OnItemAddButtonClicked" OrderItem="data:CowboyCoffee">Cowboy Coffee</ex:ItemButton>
+            <ex:ItemButton Click="OnItemAddButtonClicked" OrderItem="data:Water">Water</ex:ItemButton>
         </StackPanel>
     </Grid>
 </UserControl>

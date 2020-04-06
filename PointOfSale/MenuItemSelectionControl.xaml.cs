@@ -11,7 +11,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using CowboyCafe.Data;
-using CowboyCafe.ExtensionMethods;
+using CowboyCafe.Extension;
 using System.Reflection;
 
 namespace CowboyCafe.PointOfSale
@@ -48,9 +48,9 @@ namespace CowboyCafe.PointOfSale
         {
             if(DataContext is Order order)
             {
-                if (sender is Button button)
+                if (sender is ItemButton button)
                 {
-                    Type itemType = Type.GetType(button.Tag as string);
+                    Type itemType = button.OrderItem;
                     if (itemType != null)
                     {
                         var itemConstructor = itemType.GetConstructor(new Type[] { });

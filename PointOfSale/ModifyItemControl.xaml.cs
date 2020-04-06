@@ -13,7 +13,7 @@ using System.Windows.Shapes;
 using CowboyCafe.Data;
 using System.Text.RegularExpressions;
 using System.Reflection;
-using CowboyCafe.ExtensionMethods;
+using CowboyCafe.Extension;
 
 
 namespace CowboyCafe.PointOfSale

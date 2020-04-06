@@ -162,7 +162,7 @@ namespace CowboyCafe.Data
             set
             {
                 if (ones == value || value < 0) return;
-                else dollars = value;
+                else ones = value;
 
                 InvokePropertyChanged("Ones");
             }
@@ -267,6 +267,48 @@ namespace CowboyCafe.Data
                 else hundreds = value;
 
                 InvokePropertyChanged("Hundreds");
+            }
+        }
+
+        /// <summary>
+        /// Get or set all the denomination values in the array
+        /// </summary>
+        public int[] Values
+        {
+            get
+            {
+                int[] array = new int[13];
+                array[0] = Hundreds;
+                array[1] = Fifties;
+                array[2] = Twenties;
+                array[3] = Tens;
+                array[4] = Fives;
+                array[5] = Twos;
+                array[6] = Ones;
+                array[7] = Dollars;
+                array[8] = HalfDollars;
+                array[9] = Quarters;
+                array[10] = Dimes;
+                array[11] = Nickels;
+                array[12] = Pennies;
+                return array;
+            }
+            set
+            {
+                if (value.Length != 13) return;
+                Hundreds = value[0];
+                Fifties = value[1];
+                Twenties = value[2];
+                Tens = value[3];
+                Fives = value[4];
+                Twos = value[5];
+                Ones = value[6];
+                Dollars = value[7];
+                HalfDollars = value[8];
+                Quarters = value[9];
+                Dimes = value[10];
+                Nickels = value[11];
+                Pennies = value[12];
             }
         }
     }

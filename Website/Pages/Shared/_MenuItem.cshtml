@@ -1,0 +1,75 @@
+﻿@using CowboyCafe.Data
+@using System.Text
+@using System.Text.RegularExpressions
+
+@model IOrderItem
+
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@{ 
+    IOrderItem item = Model;
+
+    Type itemType = item.GetType();
+    ViewData["AdditionalInfo"] = "";
+    if(itemType.GetProperty("Flavor") != null) // Add the possible flavors to an info string
+    {
+        var infoString = new StringBuilder();
+        foreach (string name in Enum.GetNames(typeof(SodaFlavor)))
+        {
+            infoString.Append($"{Regex.Replace(name, "([a-z])([A-Z])", "$1 $2")} - ");
+        }
+        infoString.Length -= 3; // Get rid of the last three characters
+        ViewData["AdditionalInfo"] = infoString.ToString();
+    }
+}
+
+<div class="menu-item">
+    <h3>@Menu.GetMenuName(item)</h3>
+    <table class="table table-condensed">
+    @if(itemType.GetProperty("Size") == null) // Don't worry about sizes here
+    {
+        <thead>
+            <tr>
+                <th>Calories</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>@item.Calories</td>
+                <td>@item.Price.ToString("C")</td>
+            </tr>
+        </tbody>
+    }
+    else
+    {
+        var property = itemType.GetProperty("Size");
+        var setter = property.GetSetMethod();
+        
+        <thead>
+            <tr>
+                <th>Size</th>
+                <th>Calories</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (string sizeName in new String[] { "Small", "Medium", "Large" })
+             {
+                @setter.Invoke(item, new object[] { Enum.Parse(typeof(Size), sizeName) })
+                <tr>
+                    <td>@sizeName</td>
+                    <td>@item.Calories</td>
+                    <td>@item.Price.ToString("C")</td>
+                </tr>
+             }
+        </tbody>
+
+    }
+
+    </table>
+
+    <p>@ViewData["AdditionalInfo"]</p>
+</div>

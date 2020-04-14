@@ -1,0 +1,44 @@
+﻿@page
+@model IndexModel
+@using CowboyCafe.Data
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Cowboy Cafe</h1>
+    <p>
+        We at Cowboy Cafe are proud to bring you authentic trail meals
+        from the American West. Shake off the dust on your boots and sake
+        your thirst with one of our old-fashioned hand-jerked sodas.
+        Dip your Pan de Campo into a bowl of beans. Or conquer the the
+        mighty Texas Triple Burger! You’ve had a hard ride - so take it easy with us.
+    </p>
+
+    <h2>Entrees</h2>
+    <div class="menu-wrapper">
+        @foreach (CowboyCafe.Data.IOrderItem item in Menu.Entrees())
+        {
+            <partial name="_MenuItem" model="item" />
+        }
+    </div>
+
+    <h2>Sides</h2>
+    <div class="menu-wrapper">
+        @foreach (CowboyCafe.Data.IOrderItem item in Menu.Sides())
+        {
+            <partial name="_MenuItem" model="item" />
+        }
+    </div>
+
+
+    <h2>Drinks</h2>
+    <div class="menu-wrapper">
+        @foreach (CowboyCafe.Data.IOrderItem item in Menu.Drinks())
+        {
+            <partial name="_MenuItem" model="item" />
+        }
+    </div>
+
+
+</div>

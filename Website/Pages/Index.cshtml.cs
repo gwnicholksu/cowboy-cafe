@@ -26,12 +26,12 @@ namespace CowboyCafe.Website.Pages
         /// <summary>
         /// Minimum allowed calories
         /// </summary>
-        public int? MinCalories { get; set; }
+        public uint? MinCalories { get; set; }
 
         /// <summary>
         /// Maximum allowed calories
         /// </summary>
-        public int? MaxCalories { get; set; }
+        public uint? MaxCalories { get; set; }
 
         /// <summary>
         /// Minimum price
@@ -55,7 +55,7 @@ namespace CowboyCafe.Website.Pages
             _logger = logger;
         }
 
-        public void OnGet(string SearchTerm, string[] Types, int? MinCalories, int? MaxCalories, double? MinPrice, double? MaxPrice)
+        public void OnGet(string SearchTerm, string[] Types, uint? MinCalories, uint? MaxCalories, double? MinPrice, double? MaxPrice)
         {
             this.SearchTerm = SearchTerm;
             this.Types = Types;

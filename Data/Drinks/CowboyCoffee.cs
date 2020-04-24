@@ -88,6 +88,16 @@ namespace CowboyCafe.Data
         }
 
         /// <summary>
+        /// Display name
+        /// </summary>
+        public override string DisplayName => "Cowboy Coffe";
+
+        /// <summary>
+        /// Description
+        /// </summary>
+        public override string Description => "fresh brewed coffe";
+
+        /// <summary>
         /// The special instructions for this drink
         /// </summary>
         public override List<String> SpecialInstructions

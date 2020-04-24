@@ -21,6 +21,16 @@ namespace CowboyCafe.Data
         uint Calories { get; }
 
         /// <summary>
+        /// Name to use to display the genaric type
+        /// </summary>
+        string DisplayName { get; }
+        
+        /// <summary>
+        /// A short description the the type
+        /// </summary>
+        string Description { get; }
+
+        /// <summary>
         /// The special instructions to have
         /// </summary>
         List<string> SpecialInstructions { get; }

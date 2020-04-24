@@ -90,6 +90,16 @@ namespace CowboyCafe.Data
         }
 
         /// <summary>
+        /// Display name
+        /// </summary>
+        public override string DisplayName => "Texas Tea";
+
+        /// <summary>
+        /// Description
+        /// </summary>
+        public override string Description => "tea";
+
+        /// <summary>
         /// The special instructions for this drink
         /// </summary>
         public override List<String> SpecialInstructions

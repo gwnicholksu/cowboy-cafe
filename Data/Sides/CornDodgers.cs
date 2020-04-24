@@ -58,6 +58,16 @@ namespace CowboyCafe.Data
         }
 
         /// <summary>
+        /// Display name
+        /// </summary>
+        public override string DisplayName => "Corn Dodgers";
+
+        /// <summary>
+        /// Description
+        /// </summary>
+        public override string Description => "a traditional trail treat of cornbread";
+
+        /// <summary>
         /// Get a nice string representation of side
         /// </summary>
         /// <returns>String of side</returns>

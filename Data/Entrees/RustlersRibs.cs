@@ -39,6 +39,16 @@ namespace CowboyCafe.Data
         }
 
         /// <summary>
+        /// Display Name
+        /// </summary>
+        public override string DisplayName => "Rustler's Ribs";
+
+        /// <summary>
+        /// Description
+        /// </summary>
+        public override string Description => "BBQ spare ribs";
+
+        /// <summary>
         /// Get the special instructions (there are none)
         /// </summary>
         public override List<String> SpecialInstructions

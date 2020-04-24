@@ -53,6 +53,16 @@ namespace CowboyCafe.Data
         }
 
         /// <summary>
+        /// Display name
+        /// </summary>
+        public override string DisplayName => "Water";
+
+        /// <summary>
+        /// Description
+        /// </summary>
+        public override string Description => "filtered tap water";
+
+        /// <summary>
         /// The special instructions for this drink
         /// </summary>
         public override List<String> SpecialInstructions

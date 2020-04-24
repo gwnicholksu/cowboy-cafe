@@ -65,6 +65,16 @@ namespace CowboyCafe.Data
         }
 
         /// <summary>
+        /// Display Name
+        /// </summary>
+        public override string DisplayName => "Angry Chicken";
+
+        /// <summary>
+        /// Description
+        /// </summary>
+        public override string Description => "spicy BBQ chicken sandwich";
+
+        /// <summary>
         /// Get the list of special instruction
         /// </summary>
         public override List<String> SpecialInstructions

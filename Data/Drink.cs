@@ -55,6 +55,16 @@ namespace CowboyCafe.Data
         }
 
         /// <summary>
+        /// Display name to use
+        /// </summary>
+        public abstract string DisplayName { get; }
+
+        /// <summary>
+        /// Description of the item
+        /// </summary>
+        public abstract string Description { get; }
+
+        /// <summary>
         /// The special instructions for this drink
         /// </summary>
         public abstract List<String> SpecialInstructions { get; }

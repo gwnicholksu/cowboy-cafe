@@ -35,6 +35,16 @@ namespace CowboyCafe.Data
         public abstract uint Calories { get; }
 
         /// <summary>
+        /// Display name to use
+        /// </summary>
+        public abstract string DisplayName { get; }
+
+        /// <summary>
+        /// Description of the item
+        /// </summary>
+        public abstract string Description { get; }
+
+        /// <summary>
         /// The SpecialInstructions to include ( there are none )
         /// </summary>
         public List<string> SpecialInstructions {

@@ -90,6 +90,16 @@ namespace CowboyCafe.Data
         }
 
         /// <summary>
+        /// Display Name
+        /// </summary>
+        public override string DisplayName => "Cowpoke Chili";
+
+        /// <summary>
+        /// Description
+        /// </summary>
+        public override string Description => "a big bowl of spicy chili";
+
+        /// <summary>
         /// Special instructions for the preparation of the chili
         /// </summary>
         public override List<string> SpecialInstructions

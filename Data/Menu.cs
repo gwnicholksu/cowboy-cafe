@@ -11,6 +11,16 @@ namespace CowboyCafe.Data
     public static class Menu
     {
         /// <summary>
+        /// The possible types of order items
+        /// </summary>
+        public static string[] Types =
+        {
+            "Entree",
+            "Side",
+            "Drink"
+        };
+
+        /// <summary>
         /// Get a list of all entrees in the cafe
         /// </summary>
         /// <returns>All the entrees in the cafe</returns>
@@ -72,19 +82,88 @@ namespace CowboyCafe.Data
         }
 
         /// <summary>
-        /// Get a nice name for a menu item
+        /// Get the menu by the type of item
         /// </summary>
-        /// <param name="item">Item to find the name of</param>
-        /// <returns>Name of the item</returns>
-        public static string GetMenuName(IOrderItem item)
+        /// <param name="type">The type of order item to get</param>
+        /// <returns>A subset of the menu with specified type</returns>
+        public static IEnumerable<IOrderItem> GetMenuByType(string type)
         {
-            if (item is Side || item is CowboyCoffee || item is Water)
+            switch (type)
             {
-                return Regex.Replace(item.ToString(), "^\\S+ ", ""); // The first word is the size for all sides
+                case "Entree": return Entrees();
+                case "Drink": return Drinks();
+                case "Side": return Sides();
+                default: return new List<IOrderItem>();
             }
-            else if (item is JerkedSoda) return "Jerked Soda";
-            else if (item is TexasTea) return "Texas Tea";
-            else return item.ToString();
+        }
+
+        /// <summary>
+        /// Search the provided collection and select names that match the search terms
+        /// </summary>
+        /// <param name="items">Collection of items to search through</param>
+        /// <param name="search">String to search for</param>
+        /// <returns>Collection of search results</returns>
+        public static IEnumerable<IOrderItem> Search(IEnumerable<IOrderItem> items, string search)
+        {
+            if (search == null) return items;
+
+            List<IOrderItem> retList = new List<IOrderItem>();
+            foreach(IOrderItem item in items)
+            {
+
+                if(item.DisplayName.Contains(search, StringComparison.InvariantCultureIgnoreCase))
+                {
+                    retList.Add(item);
+                }
+            }
+
+            return retList;
+        }
+
+        /// <summary>
+        /// Filter a collection by a minimum and maximum bound of calories
+        /// </summary>
+        /// <param name="items">Colection of items to filter</param>
+        /// <param name="min">Minimum allowed calories</param>
+        /// <param name="max">Maximum allowed calories</param>
+        /// <returns>Filtered collection</returns>
+        public static IEnumerable<IOrderItem> FilterByCalories(IEnumerable<IOrderItem> items, uint? min, uint? max)
+        {
+            if (min == null) min = 0;
+            if (max == null) max = uint.MaxValue;
+
+            var retList = new List<IOrderItem>();
+            foreach(var item in items)
+            {
+                if(item.Calories >= min && item.Calories <= max)
+                {
+                    retList.Add(item);
+                }
+            }
+            return retList;
+        }
+
+        /// <summary>
+        /// Filter a collection by a minimum and maximum bound of price
+        /// </summary>
+        /// <param name="items">Colection of items to filter</param>
+        /// <param name="min">Minimum allowed price</param>
+        /// <param name="max">Maximum allowed price</param>
+        /// <returns>Filtered collection</returns>
+        public static IEnumerable<IOrderItem> FilterByPrice(IEnumerable<IOrderItem> items, double? min, double? max)
+        {
+            if (min == null) min = 0;
+            if (max == null) max = double.MaxValue;
+
+            var retList = new List<IOrderItem>();
+            foreach (var item in items)
+            {
+                if (item.Price >= min && item.Price <= max)
+                {
+                    retList.Add(item);
+                }
+            }
+            return retList;
         }
     }
 }

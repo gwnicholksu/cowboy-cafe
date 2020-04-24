@@ -35,6 +35,22 @@ namespace CowboyCafe.DataTests
         public List<string> SpecialInstructions { get; set; }
 
         public event PropertyChangedEventHandler PropertyChanged;
+
+        public string DisplayName { get; }
+
+        public string Description => "";
+
+        public MockOrderItem(string name, uint calories, double price)
+        {
+            this.DisplayName = name;
+            this.calories = calories;
+            this.price = price;
+        }
+
+        public MockOrderItem()
+        {
+
+        }
     }
 
     public class OrderTests

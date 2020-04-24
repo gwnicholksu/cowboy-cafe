@@ -177,6 +177,16 @@ namespace CowboyCafe.Data
         }
 
         /// <summary>
+        /// Display Name
+        /// </summary>
+        public override string DisplayName => "Texas Triple";
+
+        /// <summary>
+        /// Description
+        /// </summary>
+        public override string Description => "a 3/4lb triple burger";
+
+        /// <summary>
         /// Get the list of special instruction
         /// </summary>
         public override List<String> SpecialInstructions

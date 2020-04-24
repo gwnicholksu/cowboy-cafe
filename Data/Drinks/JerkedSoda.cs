@@ -67,6 +67,16 @@ namespace CowboyCafe.Data
         }
 
         /// <summary>
+        /// Display name
+        /// </summary>
+        public override string DisplayName => "Jerked Soda";
+
+        /// <summary>
+        /// Description
+        /// </summary>
+        public override string Description => "your choice of fountain drink";
+
+        /// <summary>
         /// The special instructions for this drink
         /// </summary>
         public override List<String> SpecialInstructions

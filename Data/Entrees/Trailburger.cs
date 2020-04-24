@@ -109,6 +109,16 @@ namespace CowboyCafe.Data
         }
 
         /// <summary>
+        /// Display Name
+        /// </summary>
+        public override string DisplayName => "Trail Burger";
+
+        /// <summary>
+        /// Description
+        /// </summary>
+        public override string Description => "a 1/4lb burger";
+
+        /// <summary>
         /// Get the list of special instruction
         /// </summary>
         public override List<String> SpecialInstructions

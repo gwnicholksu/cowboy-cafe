@@ -58,6 +58,16 @@ namespace CowboyCafe.Data
         }
 
         /// <summary>
+        /// Display name
+        /// </summary>
+        public override string DisplayName => "Chili Cheese Fries";
+
+        /// <summary>
+        /// Description
+        /// </summary>
+        public override string Description => "sliced potatoes slathered with chili and cheese";
+
+        /// <summary>
         /// Get a nice string representation of this side
         /// </summary>
         /// <returns>String of side</returns>

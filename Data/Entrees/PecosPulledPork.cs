@@ -66,6 +66,16 @@ namespace CowboyCafe.Data
         }
 
         /// <summary>
+        /// Display Name
+        /// </summary>
+        public override string DisplayName => "Pecos Pulled Pork";
+
+        /// <summary>
+        /// Description
+        /// </summary>
+        public override string Description => "BBQ pulled pork sandwich";
+
+        /// <summary>
         /// Get the list of special instruction
         /// </summary>
         public override List<String> SpecialInstructions

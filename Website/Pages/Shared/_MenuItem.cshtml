@@ -27,7 +27,8 @@
 
 <div class="menu-item card border-primary mb-3" style="min-width: 20rem; max-width: 20rem">
     <div class="card-body">
-        <h3 class="card-title">@Menu.GetMenuName(item)</h3>
+        <h3 class="card-title">@item.DisplayName</h3>
+        <p class="cell-text">@item.Description</p>
         <table class="table table-condensed">
         @if(itemType.GetProperty("Size") == null) // Don't worry about sizes here
         {
@@ -72,7 +73,7 @@
 
         </table>
 
-        <p>@ViewData["AdditionalInfo"]</p>
+        <p class="cell-text">@ViewData["AdditionalInfo"]</p>
     </div>
 
 </div>

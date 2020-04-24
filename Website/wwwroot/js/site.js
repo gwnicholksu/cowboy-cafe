@@ -2,3 +2,10 @@
 // for details on configuring this project to bundle and minify static web assets.
 
 // Write your Javascript code.
+$('#filterCollapsable').on('shown.bs.collapse', function (e) {
+    $('#filterCollapser').find("i.material-icons").text("expand_less");
+});
+
+$('#filterCollapsable').on('hidden.bs.collapse', function (e) {
+         $('#filterCollapser').find("i.material-icons").text("expand_more");
+});

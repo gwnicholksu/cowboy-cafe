@@ -14,31 +14,81 @@
         Dip your Pan de Campo into a bowl of beans. Or conquer the the
         mighty Texas Triple Burger! You’ve had a hard ride - so take it easy with us.
     </p>
-
-    <h2>Entrees</h2>
-    <div class="menu-wrapper">
-        @foreach (CowboyCafe.Data.IOrderItem item in Menu.Entrees())
-        {
-            <partial name="_MenuItem" model="item" />
-        }
-    </div>
-
-    <h2>Sides</h2>
-    <div class="menu-wrapper">
-        @foreach (CowboyCafe.Data.IOrderItem item in Menu.Sides())
-        {
-            <partial name="_MenuItem" model="item" />
-        }
-    </div>
-
-
-    <h2>Drinks</h2>
-    <div class="menu-wrapper">
-        @foreach (CowboyCafe.Data.IOrderItem item in Menu.Drinks())
-        {
-            <partial name="_MenuItem" model="item" />
-        }
-    </div>
-
-
 </div>
+
+<div>
+    <button id="filterCollapser" class="btn btn-primary" data-toggle="collapse" data-target="#filterCollapsable" role="button" aria-controls="filterCollapsable" aria-expanded="false">
+    Search and Filter
+    <i class="material-icons" aria-hidden="true">keyboard_arrow_down</i>
+    </button>
+    <div id="filterCollapsable" class="collapse">
+        <form class="card card-body">
+            <div class="form-row">
+                <div class="col">
+                    <div class="form-group">
+                        <h4>Search</h4>
+                        <input type="text" name="SearchTerm" class="form-control" value="@Model.SearchTerm" />
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <h4>Item Type</h4>
+                        @foreach (String type in Menu.Types)
+                        {
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" name="Types" value="@type" checked="@Model.Types?.Contains(type)" />
+                                <label class="form-check-label">
+                                    @type
+                                </label>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col">
+                    <div class="form-group">
+                        <h4>Calories (small)</h4>
+                        <div>
+                            Between
+                            <input name="MinCalories" type="number" min="0" step="1" class="form-control" value="@Model.MinCalories" />
+                            and
+                            <input name="MaxCalories" type="number" mon="0" step="1" class="form-control" value="@Model.MaxCalories" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <h4>Price (small)</h4>
+                        <div>
+                            Between
+                            <input name="MinPrice" type="number" min="0" step="0.01" class="form-control" value="@Model.MinPrice" />
+                            and
+                            <input name="MaxPrice" type="number" mon="0" step="0.01" class="form-control" value="@Model.MaxPrice" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Search</button>
+        </form>
+    </div>
+</div>
+
+
+@foreach(var category in Model.DisplayCollections)
+{
+    if(category.Item2.Any())
+    {
+        <div class="border-top my-3"></div>
+        <h2>@category.Item1</h2>
+        <div class="menu-wrapper card-deck">
+            @foreach (CowboyCafe.Data.IOrderItem item in category.Item2)
+            {
+                <partial name="_MenuItem" model="item" />
+            }
+        </div>
+    }
+}
+
+
+

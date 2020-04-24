@@ -21,6 +21,17 @@ namespace CowboyCafe.DataTests
             } 
         }
 
+        private uint calories;
+        public uint Calories
+        {
+            get { return calories; }
+            set
+            {
+                calories = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
+            }
+        }
+
         public List<string> SpecialInstructions { get; set; }
 
         public event PropertyChangedEventHandler PropertyChanged;

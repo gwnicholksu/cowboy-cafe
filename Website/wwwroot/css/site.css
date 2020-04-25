@@ -76,3 +76,9 @@ body {
   position: relative;
   top: -1px;
 }
+
+.card-img-top {
+    width: 100%;
+    height: auto;
+    padding: 2px;
+}

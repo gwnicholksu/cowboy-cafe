@@ -19,4 +19,8 @@
     <ProjectReference Include="..\Data\Data.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\asset\cowboy-cafe-images\" />
+  </ItemGroup>
+
 </Project>

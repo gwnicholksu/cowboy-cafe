@@ -23,9 +23,41 @@
         infoString.Length -= 3; // Get rid of the last three characters
         ViewData["AdditionalInfo"] = infoString.ToString();
     }
+
+    var itemImages = new Tuple<Type, string>[]{
+        Tuple.Create(typeof(AngryChicken),"angrychicken.jpg"),
+        Tuple.Create(typeof(CowpokeChili),"cowpokechili.jpg"),
+        Tuple.Create(typeof(DakotaDoubleBurger),"dakotadouble.jpg"),
+        Tuple.Create(typeof(PecosPulledPork),"pulledpork.jpg"),
+        Tuple.Create(typeof(RustlersRibs),"ribs.jpg"),
+        Tuple.Create(typeof(TexasTripleBurger),"tripleburger.jpg"),
+        Tuple.Create(typeof(TrailBurger),"burger.jpg"),
+        Tuple.Create(typeof(BakedBeans),"beans.jpg"),
+        Tuple.Create(typeof(ChiliCheeseFries),"chilicheese.jpg"),
+        Tuple.Create(typeof(CornDodgers),"corndodgers.jpg"),
+        Tuple.Create(typeof(PanDeCampo),"pandecampo.jpg"),
+        Tuple.Create(typeof(CowboyCoffee),"coffee.jpg"),
+        Tuple.Create(typeof(JerkedSoda),"soda.jpg"),
+        Tuple.Create(typeof(TexasTea),"tea.jpg"),
+        Tuple.Create(typeof(Water),"water.jpg")
+    };
+
+    string img_addr = "/asset/cowboy-cafe-images/menu-items/";
+
+    var foundVal = Array.Find<Tuple<Type, string>>(itemImages, i => i.Item1 == item.GetType());
+
+    if(foundVal != null)
+    {
+        img_addr = img_addr + foundVal.Item2;
+    }
+    else
+    {
+        img_addr = img_addr + "default.jpg";
+    }
 }
 
 <div class="menu-item card border-primary mb-3" style="min-width: 20rem; max-width: 20rem">
+    <img src="@img_addr" class="card-img-top" alt="@item.DisplayName Image" />
     <div class="card-body">
         <h3 class="card-title">@item.DisplayName</h3>
         <p class="cell-text">@item.Description</p>

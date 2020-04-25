@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+* Author: Grant Nichol
+* Class: MoneyManager.cs
+* Purpose: Class that interfaces with a register and CashInHand to deturmine change
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 

@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+* Author: Grant Nichol
+* Class: Menu.cs
+* Purpose: Static class with methods to select and filter order items
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Text.RegularExpressions;

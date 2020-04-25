@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+* Author: Grant Nichol
+* Class: CashRegisterModelView.cs
+* Purpose: Model view to make accesing CashRegister.ddl easier
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using CashRegister;

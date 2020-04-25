@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+* Author: Grant Nichol
+* Class: Order.cs
+* Purpose: Class holding the items in an order
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.ComponentModel;

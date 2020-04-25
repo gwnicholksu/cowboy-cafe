@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+* Author: Grant Nichol
+* Enum: PaymentMethod.cs
+* Purpose: Enumeration holding the possible payment methods
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 

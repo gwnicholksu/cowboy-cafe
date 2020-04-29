@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Linq;
 
 namespace CowboyCafe.Data
 {
@@ -113,17 +114,7 @@ namespace CowboyCafe.Data
         {
             if (search == null) return items;
 
-            List<IOrderItem> retList = new List<IOrderItem>();
-            foreach(IOrderItem item in items)
-            {
-
-                if(item.DisplayName.Contains(search, StringComparison.InvariantCultureIgnoreCase))
-                {
-                    retList.Add(item);
-                }
-            }
-
-            return retList;
+            return items.Where(i => i.DisplayName.Contains(search, StringComparison.InvariantCultureIgnoreCase));
         }
 
         /// <summary>
@@ -138,15 +129,7 @@ namespace CowboyCafe.Data
             if (min == null) min = 0;
             if (max == null) max = uint.MaxValue;
 
-            var retList = new List<IOrderItem>();
-            foreach(var item in items)
-            {
-                if(item.Calories >= min && item.Calories <= max)
-                {
-                    retList.Add(item);
-                }
-            }
-            return retList;
+            return items.Where(i => i.Calories >= min && i.Calories <= max);
         }
 
         /// <summary>
@@ -161,15 +144,7 @@ namespace CowboyCafe.Data
             if (min == null) min = 0;
             if (max == null) max = double.MaxValue;
 
-            var retList = new List<IOrderItem>();
-            foreach (var item in items)
-            {
-                if (item.Price >= min && item.Price <= max)
-                {
-                    retList.Add(item);
-                }
-            }
-            return retList;
+            return items.Where(i => i.Price >= min && i.Price <= max);
         }
     }
 }

@@ -81,7 +81,7 @@
     {
         <div class="border-top my-3"></div>
         <h2>@category.Item1</h2>
-        <div class="menu-wrapper card-deck">
+        <div class="menu-wrapper card-deck px-3">
             @foreach (CowboyCafe.Data.IOrderItem item in category.Item2)
             {
                 <partial name="_MenuItem" model="item" />
